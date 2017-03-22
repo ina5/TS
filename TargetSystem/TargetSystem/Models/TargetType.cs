@@ -5,22 +5,25 @@
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Collections.Generic;
 
-    public class TargetType
+    public enum TargetType
     {
-        private ICollection<Target> targets;
+        mandatory,
+        bonus
 
-        public TargetType()
-        {
-            this.targets = new HashSet<Target>();
-        }
+        //private ICollection<Target> targets;
 
-        [Key]
-        public int TargetTypeId { get; set; }
+        //public TargetType()
+        //{
+        //    this.targets = new HashSet<Target>();
+        //}
+
+        //[Key]
+        //public int TargetTypeId { get; set; }
 
      
-        [StringLength(500)]
-        public string TargetTypeName { get; set; }
+        //[StringLength(500)]
+        //public string TargetTypeName { get; set; }
 
-        public virtual ICollection<Target> Targets { get; set; }
+        //public virtual ICollection<Target> Targets { get; set; }
     }
 }

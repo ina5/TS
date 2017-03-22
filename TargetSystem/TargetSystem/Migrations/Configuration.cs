@@ -7,7 +7,7 @@ namespace TargetSystem.Migrations
     using System.Collections.Generic;
     using TargetSystem.Models;
     using Microsoft.AspNet.Identity.EntityFramework;
-
+    using Microsoft.AspNet.Identity;
 
     public sealed class Configuration : DbMigrationsConfiguration<TargetSystem.Models.TSDbContext>
     {
@@ -52,7 +52,62 @@ namespace TargetSystem.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+            this.RoleSeeder(context);
+            this.UsersSeeder(context);
 
+
+        }
+
+        private void UsersSeeder(TSDbContext context)
+        {
+            var userStore = new UserStore<ApplicationUser>(context);
+            var userManager = new UserManager<ApplicationUser>(userStore);
+
+            userManager.PasswordValidator = new PasswordValidator
+            {
+                RequiredLength = 1,
+                RequireDigit = false,
+                RequireLowercase = false,
+                RequireNonLetterOrDigit = false,
+                RequireUppercase = false,
+            };
+
+            if (!context.Users.Any(u => u.UserName == "admin@admin.com"))
+            {
+                var adminUser = new ApplicationUser
+                {
+                    UserName = "admin@admin.com",
+                    Email = "admin@admin.com",
+                };
+
+                userManager.Create(adminUser, "123");
+                userManager.AddToRole(adminUser.Id, "admin");
+            }
+        }
+
+        private void RoleSeeder(TSDbContext context)
+        {
+            var roleStore = new RoleStore<IdentityRole>(context);
+            var roleManager = new RoleManager<IdentityRole>(roleStore);
+
+            var roleAdmin = new IdentityRole() { Name = "admin" };
+            var roleTargetManager = new IdentityRole() { Name = "manager" };
+            var roleEmployee = new IdentityRole() { Name = "employee" };
+
+            if (!context.Roles.Any(role => role.Name == "admin"))
+            {
+                roleManager.Create(roleAdmin);
+            }
+
+            if (!context.Roles.Any(role => role.Name == "manager"))
+            {
+                roleManager.Create(roleTargetManager);
+            }
+
+            if (!context.Roles.Any(role => role.Name == "employee"))
+            {
+                roleManager.Create(roleEmployee);
+            }
         }
     }
 }

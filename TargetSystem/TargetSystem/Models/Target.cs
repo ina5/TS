@@ -9,7 +9,7 @@
     public class Target
     {
         private ICollection<Position> positions;
-        
+
         public Target()
         {
             this.positions = new HashSet<Position>();
@@ -22,11 +22,15 @@
         [StringLength(500)]
         public string TargetDescription { get; set; }
 
-        [ForeignKey("TargetType")]
-        public int TargetTypeId { get; set; }
+        //[ForeignKey("TargetType")]
+        //public int TargetTypeId { get; set; }
 
         public virtual TargetType TargetType { get; set; }
 
-        public virtual ICollection<Position> Positions { get; set; }
+        public virtual ICollection<Position> Positions
+        {
+            get { return this.positions; }
+            set { this.positions = value; }
+        }
     }
 }

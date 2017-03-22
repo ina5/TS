@@ -11,7 +11,7 @@
 
         public Position()
         {
-            this.ApplicationUser = new HashSet<ApplicationUser>();
+            this.users = new HashSet<ApplicationUser>();
         }
 
         [Key]
@@ -26,6 +26,10 @@
 
         public virtual Target Target { get; set; }
 
-        public virtual ICollection<ApplicationUser> ApplicationUser { get; set; }
+        public virtual ICollection<ApplicationUser> ApplicationUser
+        {
+            get { return this.users; }
+            set { this.users = value; }
+        }
     }
 }
