@@ -6,13 +6,13 @@
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Collections.Generic;
 
-    public class Targets
+    public class Target
     {
-        private ICollection<Positions> positions;
+        private ICollection<Position> positions;
         
-        public Targets()
+        public Target()
         {
-            this.Positions = new HashSet<Positions>();
+            this.positions = new HashSet<Position>();
         }
 
         [Key]
@@ -27,6 +27,6 @@
 
         public virtual TargetType TargetType { get; set; }
 
-        public virtual ICollection<Positions> Positions { get; set; }
+        public virtual ICollection<Position> Positions { get; set; }
     }
 }

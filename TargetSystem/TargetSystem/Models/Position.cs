@@ -5,11 +5,11 @@
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Collections.Generic;
 
-    public class Positions
+    public class Position
     {
         private ICollection<ApplicationUser> users;
 
-        public Positions()
+        public Position()
         {
             this.ApplicationUser = new HashSet<ApplicationUser>();
         }
@@ -17,14 +17,14 @@
         [Key]
         public int PositionId { get; set; }
 
-        [Required]
+    
         [StringLength(500)]
         public string PositionName { get; set; }
 
-        [ForeignKey("Targets")]
+        [ForeignKey("Target")]
         public int TargetsId { get; set; }
 
-        public virtual Targets Target { get; set; }
+        public virtual Target Target { get; set; }
 
         public virtual ICollection<ApplicationUser> ApplicationUser { get; set; }
     }

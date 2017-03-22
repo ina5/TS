@@ -7,20 +7,20 @@
 
     public class TargetType
     {
-        private ICollection<Targets> targets;
+        private ICollection<Target> targets;
 
         public TargetType()
         {
-            this.Targets = new HashSet<Targets>();
+            this.targets = new HashSet<Target>();
         }
 
         [Key]
         public int TargetTypeId { get; set; }
 
-        [Required]
+     
         [StringLength(500)]
         public string TargetTypeName { get; set; }
 
-        public virtual ICollection<Targets> Targets { get; set; }
+        public virtual ICollection<Target> Targets { get; set; }
     }
 }

@@ -395,8 +395,8 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
-    <Compile Include="Models\Positions.cs" />
-    <Compile Include="Models\Targets.cs" />
+    <Compile Include="Models\Position.cs" />
+    <Compile Include="Models\Target.cs" />
     <Compile Include="Models\TargetType.cs" />
     <Compile Include="Models\TSDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
