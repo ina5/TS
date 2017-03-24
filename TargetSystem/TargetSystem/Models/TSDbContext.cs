@@ -7,10 +7,11 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using TargetSystem.Models;
+using System.Data.Entity;
 
 namespace TargetSystem.Models
 {
-    
+
 
     public class TSDbContext : IdentityDbContext<ApplicationUser>
     {
@@ -18,6 +19,12 @@ namespace TargetSystem.Models
             : base("TargetSystem", throwIfV1Schema: false)
         {
         }
+
+        public virtual IDbSet<Position> Positions { get; set; }
+
+        public virtual IDbSet<Target> Targets { get; set; }
+
+        //public virtual IDbSet<ApplicationUser> ApplicationUser { get; set; }
 
         public static TSDbContext Create()
         {

@@ -52,9 +52,22 @@ namespace TargetSystem.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            this.RoleSeeder(context);
+            this.RolesSeeder(context);
             this.UsersSeeder(context);
+            this.PositionsSeeder(context);
 
+        }
+
+        private void PositionsSeeder(TSDbContext context)
+        {
+            context.Positions.AddOrUpdate(new Position()
+            {
+                PositionName = "Front-end Developer"
+            });
+            context.Positions.AddOrUpdate(new Position()
+            {
+                PositionName = "Back-end Developer"
+            });
 
         }
 
@@ -83,9 +96,33 @@ namespace TargetSystem.Migrations
                 userManager.Create(adminUser, "123");
                 userManager.AddToRole(adminUser.Id, "admin");
             }
+            //TargetManager
+            else if (!context.Users.Any(u => u.UserName == "tmanager@abv.bg"))
+            {
+                var employeeUser = new ApplicationUser
+                {
+                    UserName = "tmanager@abv.bg",
+                    Email = "tmanager@abv.bg",
+                };
+
+                userManager.Create(employeeUser, "manager");
+                userManager.AddToRole(employeeUser.Id, "manager");
+            }
+            //Employee
+            else if (!context.Users.Any(u => u.UserName == "vani_vanito@abv.bg"))
+            {
+                var employeeUser = new ApplicationUser
+                {
+                    UserName = "vani_vanito@abv.bg",
+                    Email = "vani_vanito@abv.bg",
+                };
+
+                userManager.Create(employeeUser, "vani");
+                userManager.AddToRole(employeeUser.Id, "employee");
+            }
         }
 
-        private void RoleSeeder(TSDbContext context)
+        private void RolesSeeder(TSDbContext context)
         {
             var roleStore = new RoleStore<IdentityRole>(context);
             var roleManager = new RoleManager<IdentityRole>(roleStore);

@@ -22,7 +22,7 @@
         public string PositionName { get; set; }
 
         [ForeignKey("Target")]
-        public int TargetsId { get; set; }
+        public int? TargetsId { get; set; }
 
         public virtual Target Target { get; set; }
 
