@@ -9,7 +9,7 @@ namespace TargetSystem.Migrations
     using Microsoft.AspNet.Identity.EntityFramework;
     using Microsoft.AspNet.Identity;
 
-    public sealed class Configuration : DbMigrationsConfiguration<TargetSystem.Models.TSDbContext>
+    public sealed class Configuration : DbMigrationsConfiguration<TSDbContext>
     {
         public Configuration()
         {
@@ -18,7 +18,7 @@ namespace TargetSystem.Migrations
             AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(TargetSystem.Models.TSDbContext context)
+        protected override void Seed(TSDbContext context)
         {
 
             //if (!context.Roles.Any(r => r.Name == "AppAdmin"))
@@ -62,10 +62,17 @@ namespace TargetSystem.Migrations
         {
             context.Positions.AddOrUpdate(new Position()
             {
+                PositionId = 1,
+                PositionName = "None"
+            });
+            context.Positions.AddOrUpdate(new Position()
+            {
+                PositionId = 2,
                 PositionName = "Front-end Developer"
             });
             context.Positions.AddOrUpdate(new Position()
             {
+                PositionId = 3,
                 PositionName = "Back-end Developer"
             });
 

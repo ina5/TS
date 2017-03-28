@@ -16,12 +16,12 @@ namespace TargetSystem.Account
             // Enable this once you have account confirmation enabled for password reset functionality
             //ForgotPasswordHyperLink.NavigateUrl = "Forgot";
 
-             OpenAuthLogin.ReturnUrl = Request.QueryString["ReturnUrl"];
-            var returnUrl = HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
-            if (!String.IsNullOrEmpty(returnUrl))
-            {
-             RegisterHyperLink.NavigateUrl += "?ReturnUrl=" + returnUrl;
-            }
+           //  OpenAuthLogin.ReturnUrl = Request.QueryString["ReturnUrl"];
+           // var returnUrl = HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
+           // if (!String.IsNullOrEmpty(returnUrl))
+           // {
+           ////  RegisterHyperLink.NavigateUrl += "?ReturnUrl=" + returnUrl;
+           // }
         }
 
         protected void LogIn(object sender, EventArgs e)

@@ -14,8 +14,10 @@ namespace TargetSystem
 
             Database.SetInitializer(
                 new MigrateDatabaseToLatestVersion<TSDbContext, Configuration>());
-            TSDbContext.Create().Database.Initialize(true);
             ConfigureAuth(app);
+
+            TSDbContext.Create().Database.Initialize(true);
+
         }
     }
 }

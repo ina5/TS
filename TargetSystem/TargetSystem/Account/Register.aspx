@@ -7,9 +7,9 @@
     </p>
 
     <div class="form-horizontal">
-        <h4>Create a new account</h4>
+        <h4>Create a new user</h4>
         <hr />
-        <asp:ValidationSummary runat="server" CssClass="text-danger" />
+
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 control-label">Email</asp:Label>
             <div class="col-md-10">
@@ -19,7 +19,7 @@
             </div>
         </div>
 
-     
+
 
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="Password" CssClass="col-md-2 control-label">Password</asp:Label>
@@ -30,19 +30,66 @@
             </div>
         </div>
         <div class="form-group">
-            <asp:Label runat="server" AssociatedControlID="ConfirmPassword" CssClass="col-md-2 control-label">Confirm password</asp:Label>
+            <asp:Label runat="server" AssociatedControlID="ConfirmPassword" CssClass="col-md-2 control-label">Confirm Password</asp:Label>
             <div class="col-md-10">
                 <asp:TextBox runat="server" ID="ConfirmPassword" TextMode="Password" CssClass="form-control" />
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="ConfirmPassword"
                     CssClass="text-danger" Display="Dynamic" ErrorMessage="The confirm password field is required." />
-                <asp:CompareValidator runat="server" ControlToCompare="Password" ControlToValidate="ConfirmPassword"
-                    CssClass="text-danger" Display="Dynamic" ErrorMessage="The password and confirmation password do not match." />
             </div>
+
         </div>
+
+        <%-- first Name --%>
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <asp:Button runat="server" OnClick="CreateUser_Click" Text="Register" CssClass="btn btn-default" />
+            <asp:Label runat="server" CssClass="col-md-2 control-label">First Name</asp:Label>
+            <div class="col-md-10">
+                <asp:TextBox runat="server" ID="fName" CssClass="form-control" />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="fName"
+                    CssClass="text-danger" ErrorMessage="The First Name field is required." />
             </div>
         </div>
-    </div>
+        <%-- surName --%>
+
+        <div class="form-group">
+            <asp:Label runat="server" CssClass="col-md-2 control-label">Surname</asp:Label>
+            <div class="col-md-10">
+                <asp:TextBox runat="server" ID="surname" CssClass="form-control" />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="surname"
+                    CssClass="text-danger" ErrorMessage="The Surname field is required." />
+                    </div>
+        </div>
+                <%-- last Name --%>
+
+                <div class="form-group">
+                    <asp:Label runat="server" CssClass="col-md-2 control-label">Last Name</asp:Label>
+                    <div class="col-md-10">
+                        <asp:TextBox runat="server" ID="lName" CssClass="form-control" />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="lName"
+                            CssClass="text-danger" ErrorMessage="The Last Name field is required." />
+                            </div>
+        </div>
+                        <%-- Choose role --%>
+
+                        <div class="form-group">
+                            <asp:Label  id="roleLabel" runat="server" CssClass="col-md-2 control-label">Role to the user</asp:Label>
+                            <div class="col-md-10">
+                                <asp:DropDownList ID="RoleDdl" runat="server" CssClass="col-md-2" AutoPostBack="True"></asp:DropDownList>
+                            </div>
+                        </div>
+
+                        <%-- choose position --%>
+
+                        <div class="form-group">
+                            <asp:Label runat="server" ID="posLabel" Visible="false" CssClass="col-md-2 control-label">Position to the user</asp:Label>
+                            <div class="col-md-10">
+                                <asp:DropDownList ID="PositionDdl" Visible="false" runat="server" CssClass="col-md-2"></asp:DropDownList>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <asp:Button runat="server" OnClick="CreateUser_Click" Text="Create" CssClass="btn btn-default" />
+                            </div>
+                        </div>
+                    </div>
 </asp:Content>

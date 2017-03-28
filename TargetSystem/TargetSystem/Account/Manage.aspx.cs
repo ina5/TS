@@ -57,7 +57,7 @@ namespace TargetSystem.Account
                 }
                 else
                 {
-                    CreatePassword.Visible = true;
+                 //   CreatePassword.Visible = true;
                     ChangePassword.Visible = false;
                 }
 

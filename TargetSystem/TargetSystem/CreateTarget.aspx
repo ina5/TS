@@ -1,12 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CreateTarget.aspx.cs" Inherits="TargetSystem.CreateTarget" %>
+﻿<%@ Page Title="Create Target" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CreateTarget.aspx.cs" Inherits="TargetSystem.CreateTarget" %>
+
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <fieldset>
-        <legend>Create Target</legend>
-
-
-        <div class="form-group">
+    <h2><%: Title %>.</h2>
+   <div class="form-group">
             <label for="textArea" class="col-lg-2 control-label">Textarea</label>
             <div class="col-lg-10">
                 <textarea class="form-control" rows="3" id="textArea"></textarea>
@@ -32,7 +31,7 @@
         </div>
         <div class="form-group">
             <label for="select" class="col-lg-2 control-label">Select Position</label>
-            <div class="col-lg-10">
+            <div class="col-lg-3">
                 <select class="form-control" id="select">
                     <option>Back-end Developer</option>
                     <option>Front- end Developer</option>
@@ -46,6 +45,5 @@
                 <button type="submit" class="btn btn-primary">Create</button>
             </div>
         </div>
-    </fieldset>
 
 </asp:Content>
