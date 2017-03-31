@@ -11,7 +11,7 @@
         <hr />
 
         <div class="form-group">
-            <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 control-label">Email</asp:Label>
+            <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 control-label">Service Email</asp:Label>
             <div class="col-md-10">
                 <asp:TextBox runat="server" ID="Email" CssClass="form-control" TextMode="Email" />
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
@@ -20,6 +20,55 @@
         </div>
 
 
+
+
+
+        <%-- First Name --%>
+        <div class="form-group">
+            <asp:Label runat="server" CssClass="col-md-2 control-label">First Name</asp:Label>
+            <div class="col-md-10">
+                <asp:TextBox runat="server" ID="fName" CssClass="form-control" />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="fName"
+                    CssClass="text-danger" ErrorMessage="The First Name field is required." />
+            </div>
+        </div>
+        <%-- Surname --%>
+
+        <div class="form-group">
+            <asp:Label runat="server" CssClass="col-md-2 control-label">Surname</asp:Label>
+            <div class="col-md-10">
+                <asp:TextBox runat="server" ID="surname" CssClass="form-control" />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="surname"
+                    CssClass="text-danger" ErrorMessage="The Surname field is required." />
+            </div>
+        </div>
+        <%-- Last Name --%>
+
+        <div class="form-group">
+            <asp:Label runat="server" CssClass="col-md-2 control-label">Last Name</asp:Label>
+            <div class="col-md-10">
+                <asp:TextBox runat="server" ID="lName" CssClass="form-control" />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="lName"
+                    CssClass="text-danger" ErrorMessage="The Last Name field is required." />
+            </div>
+        </div>
+        <%-- Choose role --%>
+
+        <div class="form-group">
+            <asp:Label ID="roleLabel" runat="server" CssClass="col-md-2 control-label">Role to the user</asp:Label>
+            <div class="col-md-10">
+                <asp:DropDownList ID="RoleDdl" runat="server" CssClass="col-md-3" AutoPostBack="True"></asp:DropDownList>
+            </div>
+        </div>
+
+        <%-- Choose position --%>
+
+        <div class="form-group">
+            <asp:Label runat="server" ID="posLabel" Visible="false" CssClass="col-md-2 control-label">Position to the user</asp:Label>
+            <div class="col-md-10">
+                <asp:DropDownList ID="PositionDdl" Visible="false" runat="server" CssClass="col-md-3"></asp:DropDownList>
+            </div>
+        </div>
 
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="Password" CssClass="col-md-2 control-label">Password</asp:Label>
@@ -38,58 +87,20 @@
             </div>
 
         </div>
-
-        <%-- first Name --%>
-        <div class="form-group">
-            <asp:Label runat="server" CssClass="col-md-2 control-label">First Name</asp:Label>
+        <%-- Personal email --%>
+           <div class="form-group">
+            <asp:Label runat="server" CssClass="col-md-2 control-label">Personal Email</asp:Label>
             <div class="col-md-10">
-                <asp:TextBox runat="server" ID="fName" CssClass="form-control" />
-                <asp:RequiredFieldValidator runat="server" ControlToValidate="fName"
-                    CssClass="text-danger" ErrorMessage="The First Name field is required." />
+                <asp:TextBox runat="server" ID="pEmail" CssClass="form-control" />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="pEmail"
+                    CssClass="text-danger" ErrorMessage="The Personal Email field is required." />
             </div>
         </div>
-        <%-- surName --%>
 
         <div class="form-group">
-            <asp:Label runat="server" CssClass="col-md-2 control-label">Surname</asp:Label>
-            <div class="col-md-10">
-                <asp:TextBox runat="server" ID="surname" CssClass="form-control" />
-                <asp:RequiredFieldValidator runat="server" ControlToValidate="surname"
-                    CssClass="text-danger" ErrorMessage="The Surname field is required." />
-                    </div>
+            <div class="col-md-offset-2 col-md-10">
+                <asp:Button runat="server" OnClick="CreateUser_Click" Text="Create" CssClass="btn btn-default" />
+            </div>
         </div>
-                <%-- last Name --%>
-
-                <div class="form-group">
-                    <asp:Label runat="server" CssClass="col-md-2 control-label">Last Name</asp:Label>
-                    <div class="col-md-10">
-                        <asp:TextBox runat="server" ID="lName" CssClass="form-control" />
-                        <asp:RequiredFieldValidator runat="server" ControlToValidate="lName"
-                            CssClass="text-danger" ErrorMessage="The Last Name field is required." />
-                            </div>
-        </div>
-                        <%-- Choose role --%>
-
-                        <div class="form-group">
-                            <asp:Label  id="roleLabel" runat="server" CssClass="col-md-2 control-label">Role to the user</asp:Label>
-                            <div class="col-md-10">
-                                <asp:DropDownList ID="RoleDdl" runat="server" CssClass="col-md-2" AutoPostBack="True"></asp:DropDownList>
-                            </div>
-                        </div>
-
-                        <%-- choose position --%>
-
-                        <div class="form-group">
-                            <asp:Label runat="server" ID="posLabel" Visible="false" CssClass="col-md-2 control-label">Position to the user</asp:Label>
-                            <div class="col-md-10">
-                                <asp:DropDownList ID="PositionDdl" Visible="false" runat="server" CssClass="col-md-2"></asp:DropDownList>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <asp:Button runat="server" OnClick="CreateUser_Click" Text="Create" CssClass="btn btn-default" />
-                            </div>
-                        </div>
-                    </div>
+    </div>
 </asp:Content>

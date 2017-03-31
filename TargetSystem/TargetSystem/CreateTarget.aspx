@@ -6,10 +6,10 @@
 
     <h2><%: Title %>.</h2>
    <div class="form-group">
-            <label for="textArea" class="col-lg-2 control-label">Textarea</label>
+            <label for="textArea" class="col-lg-2 control-label">Description</label>
             <div class="col-lg-10">
                 <textarea class="form-control" rows="3" id="textArea"></textarea>
-                <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
+                <span class="help-block">Set task/s</span>
             </div>
         </div>
         <div class="form-group">
