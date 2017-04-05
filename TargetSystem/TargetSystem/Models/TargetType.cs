@@ -7,8 +7,8 @@
 
     public enum TargetType
     {
-        mandatory,
-        bonus
+        Mandatory,
+        Bonus
 
         //private ICollection<Target> targets;
 

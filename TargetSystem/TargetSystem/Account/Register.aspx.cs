@@ -58,7 +58,7 @@ namespace TargetSystem.Account
 
         protected void CreateUser_Click(object sender, EventArgs e)
         {
-            var db = new TSDbContext();
+            var databaseTS = new TSDbContext();
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
             var user = new ApplicationUser()
@@ -71,7 +71,7 @@ namespace TargetSystem.Account
                 //check roles :
                 //0) if the role is manager set position to None
                 //1) or if is not set position which has the same name as the text from the dropDownList
-                PositionId = RoleDdl.SelectedIndex == 0 ? 1 : db
+                PositionId = RoleDdl.SelectedIndex == 0 ? 1 : databaseTS
                                                                 .Positions
                                                                 .FirstOrDefault(
                                                                  x => x.PositionName == PositionDdl.SelectedItem.Text)
