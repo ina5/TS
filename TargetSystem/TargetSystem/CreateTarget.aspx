@@ -30,10 +30,27 @@
     <div class="form-group">
         <label for="select" class="col-lg-2 control-label">Select Position</label>
         <div class="col-lg-3">
-            <asp:DropDownList ID="PositionDdl" runat="server"></asp:DropDownList>
+            <asp:DropDownList ID="PositionDdl" runat="server" AutoPostBack="True"></asp:DropDownList>
             <br>
         </div>
     </div>
+    <div class="form-group">
+        <label for="select" class="col-lg-2 control-label">Select Employee</label>
+        <div class="col-lg-3">
+            <asp:GridView ID="EmployeesGV" OnRowDataBound="EmployeesGV_RowDataBound" runat="server">
+                <Columns>
+                    <asp:TemplateField HeaderText="Add">
+                        <ItemTemplate>
+                            <asp:CheckBox
+                                ID="chkIsSelected" runat="server" HeaderText="IsSelected"
+                                Checked='<%#Convert.ToBoolean(Eval("IsSelected")) %>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
+        </div>
+    </div>
+
     <%-- Calendar --%>
     <table>
         <tr>
@@ -73,6 +90,8 @@
                 <td>
         </tr>
     </table>
+
+    <textarea id="TextArea1" runat="server" cols="20" rows="2"></textarea>
 
     <div class="form-group">
         <div class="col-lg-10 col-lg-offset-2">

@@ -18,13 +18,14 @@ namespace TargetSystem.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //Hide Positions from Role Manager
             if (RoleDdl.SelectedIndex == 0)
             {
                 posLabel.Visible = false;
                 PositionDdl.Visible = false;
 
             }
+            //Show Positions for Role Employee
             else if (RoleDdl.SelectedIndex == 1)
             {
                 posLabel.Visible = true;
@@ -35,9 +36,11 @@ namespace TargetSystem.Account
 
             if (!IsPostBack)
             {
+
                 RoleDdl.Items.Add("manager");
                 RoleDdl.Items.Add("employee");
 
+                //Show Positions from DataBase
                 var db = new TSDbContext();
 
                 var posNames = new List<string>();

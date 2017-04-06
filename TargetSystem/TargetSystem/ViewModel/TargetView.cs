@@ -9,10 +9,10 @@ namespace TargetSystem.ViewModel
     {
         public int Id { get; set; }
 
-        public string TGoal { get; set; }
+        public string Goal { get; set; }
 
-        public string TType { get; set; }
+        public string Type { get; set; }
 
-        public string TCreator { get; set; }
+        public string Creator { get; set; }
     }
 }

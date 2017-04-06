@@ -104,7 +104,7 @@ namespace TargetSystem.Migrations
                 userManager.AddToRole(adminUser.Id, "admin");
             }
             //TargetManager
-            else if (!context.Users.Any(u => u.UserName == "tmanager@abv.bg"))
+             if (!context.Users.Any(u => u.UserName == "tmanager@abv.bg"))
             {
                 var employeeUser = new ApplicationUser
                 {
@@ -116,7 +116,7 @@ namespace TargetSystem.Migrations
                 userManager.AddToRole(employeeUser.Id, "manager");
             }
             //Employee
-            else if (!context.Users.Any(u => u.UserName == "vani_vanito@abv.bg"))
+            if (!context.Users.Any(u => u.UserName == "vani_vanito@abv.bg"))
             {
                 var employeeUser = new ApplicationUser
                 {

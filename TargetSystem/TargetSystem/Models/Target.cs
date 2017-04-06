@@ -9,11 +9,11 @@
 
     public class Target
     {
-        private ICollection<Position> positions;
 
+        private ICollection<ApplicationUser> users;
         public Target()
         {
-            this.positions = new HashSet<Position>();
+            this.users = new HashSet<ApplicationUser>();
         }
 
         [Key]
@@ -26,27 +26,28 @@
         [MaxLength]
         public string TargetDescription { get; set; }
 
-        //[ForeignKey("TargetType")]
-        //public int TargetTypeId { get; set; }
+        public string Creator { get; set; }
 
         public virtual TargetType TargetType { get; set; }
 
-        public decimal TargetMoney { get; set; }
+        public decimal TargetPercent { get; set; }
 
-        public virtual ICollection<Position> Positions
-        {
-            get { return this.positions; }
-            set { this.positions = value; }
-        }
         public DateTime StartDate { get; set; }
 
         public DateTime EndDate { get; set; }
 
 
-        [ForeignKey("Creator")]
-        public string CreatorId { get; set; }
-
-        public virtual ApplicationUser Creator { get; set; }
+        public virtual ICollection<ApplicationUser> ApplicationUser
+        {
+            get
+            {
+                return this.users;
+            }
+            set
+            {
+                this.users = value;
+            }
+        }
 
     }
 }

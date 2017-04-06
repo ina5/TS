@@ -21,10 +21,6 @@
         [StringLength(500)]
         public string PositionName { get; set; }
 
-        [ForeignKey("Target")]
-        public int? TargetsId { get; set; }
-
-        public virtual Target Target { get; set; }
 
         public virtual ICollection<ApplicationUser> ApplicationUser
         {

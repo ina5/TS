@@ -12,24 +12,34 @@ namespace TargetSystem.Models
     // You can add User data for the user by adding more properties to your User class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
+        private ICollection<Target> targets;
+
+        public ApplicationUser()
+        {
+            this.targets = new HashSet<Target>();
+        }
+
         [StringLength(500)]
         public string FirstName { get; set; }
 
-       
+
         [StringLength(500)]
         public string Surname { get; set; }
 
-     
+
         [StringLength(500)]
         public string LastName { get; set; }
-
-    
-      
 
         [ForeignKey("Position")]
         public int? PositionId { get; set; }
 
         public virtual Position Position { get; set; }
+
+        public virtual ICollection<Target> Targets
+        {
+            get { return this.targets; }
+            set { this.targets = value; }
+        }
 
         public ClaimsIdentity GenerateUserIdentity(ApplicationUserManager manager)
         {

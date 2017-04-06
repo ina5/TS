@@ -49,6 +49,15 @@ namespace TargetSystem {
         protected global::System.Web.UI.WebControls.DropDownList PositionDdl;
         
         /// <summary>
+        /// EmployeesGV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView EmployeesGV;
+        
+        /// <summary>
         /// StartDateCal control.
         /// </summary>
         /// <remarks>
@@ -65,6 +74,15 @@ namespace TargetSystem {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Calendar EndDateCal;
+        
+        /// <summary>
+        /// TextArea1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea TextArea1;
         
         /// <summary>
         /// CreateButton control.
