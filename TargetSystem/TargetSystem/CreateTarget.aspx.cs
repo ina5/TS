@@ -46,63 +46,94 @@ namespace TargetSystem
                 .Where(y => y.PositionId == selectedPosId)
                 .Select(x => new EmployeeView()
                 {
+                    Id = x.Id,
                     FirstName = x.FirstName,
                     LastName = x.LastName,
                     Email = x.Email,
 
                 })
-
-                  .ToList();
+                .ToList();
 
 
             EmployeesGV.DataSource = gridData;
             EmployeesGV.DataBind();
-
+           
         }
-        //Hide an existing column "IsSelected"
+    
+        //Hide an existing column "IsSelected" and Id
         protected void EmployeesGV_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            e.Row.Cells[4].Visible = false;
+            e.Row.Cells[1].Visible = false;
+            //e.Row.Cells[5].Visible = false;
+
+        }
+
+        protected void EmployeeGv_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int index = 0;
+            int id = -1;
+            GridViewRow row;
+            GridView grid = sender as GridView;
+
+            if (e.CommandName == "Add")
+            {
+                index = Convert.ToInt32(e.CommandArgument);
+                row = grid.Rows[index];
+                id = int.Parse(row.Cells[1].Text);
+            }
+
+            Response.Redirect("Details.aspx?id=" + id.ToString());
+
         }
 
         protected void CreateButton_Click(object sender, EventArgs e)
         {
-            var rows = EmployeesGV.Rows;
-            int count = EmployeesGV.Rows.Count;
-            var listEmails = new List<string>();
-            for (int i = 0; i < count; i++)
-            {
-                bool isChecked = ((CheckBox)rows[i].FindControl("chkIsSelected")).Checked;
-                GridViewRow row;
 
-                if (isChecked)
-                {
-
-                    row = EmployeesGV.Rows[i];
-                    listEmails.Add(row.Cells[4].Text);
-
-
-                }
-            }
-
-
-            TextArea1.Value = string.Join(", ", listEmails);
-
-
+            //Create Target
             Target target = new Target()
             {
                 TargetGoal = goalTextBox.Text,
                 TargetDescription = textArea.Value,
                 TargetType = (TargetType)Enum.Parse(typeof(TargetType), TargetTypeRbl.SelectedValue),
+                Creator = HttpContext.Current.User.Identity.Name,
                 StartDate = StartDateCal.SelectedDate.Date,
-                EndDate = EndDateCal.SelectedDate.Date,
-                Creator = HttpContext.Current.User.Identity.Name
+                EndDate = EndDateCal.SelectedDate.Date
+
             };
+            //Add create Target in TargetsTable
             context.Targets.Add(target);
 
             context.SaveChanges();
 
+            //
+            var currentTarget = context.Targets.Find(target.TargetsId);
+
+
+            //var rows = EmployeesGV.Rows;
+            //int count = EmployeesGV.Rows.Count;
+
+            //for (int i = 0; i < count; i++)
+            //{
+            //    bool isChecked = ((CheckBox)rows[i].FindControl("chkIsSelected")).Checked;
+            //    GridViewRow row;
+            //    int selectedEmployeeId;
+            //    if (isChecked)
+            //    {
+            //        row = EmployeesGV.Rows[i];
+            //        selectedEmployeeId = int.Parse(row.Cells[1].Text);
+            //        currentTarget.ApplicationUser.Add(context.Users.Find(selectedEmployeeId));
+            //        context.SaveChanges();
+            //    }
+            //}
+
+
+
+            goalTextBox.Text = String.Empty;
+            textArea.InnerText = String.Empty;
+
             //Response.Redirect("~/Default.aspx");
         }
+
+
     }
 }

@@ -71,6 +71,7 @@ namespace TargetSystem.Account
                 FirstName = fName.Text,
                 Surname = surname.Text,
                 LastName = lName.Text,
+                IsSelected = false,
                 //check roles :
                 //0) if the role is manager set position to None
                 //1) or if is not set position which has the same name as the text from the dropDownList

@@ -96,8 +96,10 @@ namespace TargetSystem.Migrations
             {
                 var adminUser = new ApplicationUser
                 {
+
                     UserName = "admin@admin.com",
                     Email = "admin@admin.com",
+                    IsSelected = false
                 };
 
                 userManager.Create(adminUser, "123");
@@ -110,6 +112,7 @@ namespace TargetSystem.Migrations
                 {
                     UserName = "tmanager@abv.bg",
                     Email = "tmanager@abv.bg",
+                    IsSelected = false
                 };
 
                 userManager.Create(employeeUser, "manager");
@@ -122,10 +125,12 @@ namespace TargetSystem.Migrations
                 {
                     UserName = "vani_vanito@abv.bg",
                     Email = "vani_vanito@abv.bg",
+                    IsSelected = false
                 };
 
                 userManager.Create(employeeUser, "vani");
                 userManager.AddToRole(employeeUser.Id, "employee");
+               
             }
         }
 

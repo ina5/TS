@@ -8,11 +8,12 @@ namespace TargetSystem.ViewModel
 {
     public class EmployeeView
     {
+        public string Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
 
-        [Browsable(false)]
+        
         public bool IsSelected { get; set; }
     }
 }
