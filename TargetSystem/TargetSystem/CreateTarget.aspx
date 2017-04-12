@@ -27,15 +27,32 @@
 
             </div>
         </div>
-        <div class="form-group">
+        <%-- Calendar --%>
+
+        <div>
+            <asp:Label class="col-lg-2 control-label" ID="calendarLabel" runat="server" Text="Start date"></asp:Label>
+            <br />
+            <asp:TextBox ID="CalendarTextBox" runat="server" ReadOnly="true"></asp:TextBox>
+            <img class="calendar" src="Images/calendar.ico" />
+            <br />
+        </div>
+        <div style="float: right;">
+            <asp:Label class="col-lg-2 control-label" ID="Label1" runat="server" Text="End date"></asp:Label>
+            <br />
+            <asp:TextBox ID="TextBox1" runat="server" ReadOnly="true"></asp:TextBox>
+            <img class="calendar" src="Images/calendar.ico" />
+            <br />
+        </div>
+
+        <%-- <div class="form-group">
             <label for="select" class="col-lg-2 control-label">Select Position</label>
             <div class="col-lg-3">
                 <asp:DropDownList ID="PositionDdl" runat="server" AutoPostBack="True"></asp:DropDownList>
                 <br>
             </div>
-        </div>
+        </div>--%>
 
-        <div class="form-group">
+        <%--<div class="form-group">
             <label for="select" class="col-lg-2 control-label">Select Employee</label>
             <div class="col-lg-3">
 
@@ -58,49 +75,7 @@
                 </asp:UpdatePanel>
 
             </div>
-        </div>
-        <%-- Calendar --%>
-        <table>
-            <tr>
-                <td>
-                    <div id="div1">
-                        <div class="col-lg-10">
-                            <label class="col-lg-2 control-label">Start Date</label>
-                            <asp:Calendar ID="StartDateCal" runat="server" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" Height="200px" Width="220px">
-                                <DayHeaderStyle BackColor="#99CCCC" ForeColor="#336666" Height="1px" />
-                                <NextPrevStyle Font-Size="8pt" ForeColor="#CCCCFF" />
-                                <OtherMonthDayStyle ForeColor="#999999" />
-                                <SelectedDayStyle BackColor="#009999" Font-Bold="True" ForeColor="#CCFF99" />
-                                <SelectorStyle BackColor="#99CCCC" ForeColor="#336666" />
-                                <TitleStyle BackColor="#003399" BorderColor="#3366CC" BorderWidth="1px" Font-Bold="True" Font-Size="10pt" ForeColor="#CCCCFF" Height="25px" />
-                                <TodayDayStyle BackColor="#99CCCC" ForeColor="White" />
-                                <WeekendDayStyle BackColor="#CCCCFF" />
-                            </asp:Calendar>
-                        </div>
-                    </div>
-                    <td>
-                <td>
-                    <div id="div2">
-                        <div class="col-lg-10">
-                            <label class="col-lg-2 control-label">End Date</label>
-                            <asp:Calendar ID="EndDateCal" runat="server" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" Height="200px" Width="220px">
-                                <DayHeaderStyle BackColor="#99CCCC" ForeColor="#336666" Height="1px" />
-                                <NextPrevStyle Font-Size="8pt" ForeColor="#CCCCFF" />
-                                <OtherMonthDayStyle ForeColor="#999999" />
-                                <SelectedDayStyle BackColor="#009999" Font-Bold="True" ForeColor="#CCFF99" />
-                                <SelectorStyle BackColor="#99CCCC" ForeColor="#336666" />
-                                <TitleStyle BackColor="#003399" BorderColor="#3366CC" BorderWidth="1px" Font-Bold="True" Font-Size="10pt" ForeColor="#CCCCFF" Height="25px" />
-                                <TodayDayStyle BackColor="#99CCCC" ForeColor="White" />
-                                <WeekendDayStyle BackColor="#CCCCFF" />
-                            </asp:Calendar>
-                        </div>
-                    </div>
-                    <td>
-            </tr>
-        </table>
-
-
-
+        </div>--%>
         <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">
                 <asp:Button ID="CreateButton" CssClass="btn btn-default" runat="server" Text="Create" OnClick="CreateButton_Click" />
@@ -108,5 +83,25 @@
             </div>
         </div>
     </div>
+    <script src="Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="Scripts/jquery.dynDateTime.min.js" type="text/javascript"></script>
+    <script src="Scripts/calendar-en.min.js" type="text/javascript"></script>
+    <link href="Content/calendar-blue.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#<%=CalendarTextBox.ClientID %>").dynDateTime({
+                showsTime: false,
+                ifFormat: "%d/%m/%Y",
+                daFormat: "%l;%M %p, %e %m, %Y",
+                align: "BR",
+                electric: true,
+                singleClick: true,
+                displayArea: ".siblings('.dtcDisplayArea')",
+                button: ".next()"
+            });
+        });
+    </script>
+
 
 </asp:Content>
+

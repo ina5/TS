@@ -17,49 +17,52 @@ namespace TargetSystem
         TSDbContext context = new TSDbContext();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                //Show Positions from DataBase
-                TargetTypeRbl.DataSource = Enum.GetNames(typeof(TargetType));
-                TargetTypeRbl.DataBind();
+            //if (!IsPostBack)
+            //{
+            //    //Show Positions from DataBase
 
-                var targetPositions = context.Positions.ToList();
-                foreach (var position in targetPositions)
-                {
-                    PositionDdl.Items.Add(new ListItem()
-                    {
-                        Value = position.PositionId.ToString(),
-                        Text = position.PositionName
-                    });
-                }
+            TargetTypeRbl.DataSource = Enum.GetNames(typeof(TargetType));
+            TargetTypeRbl.DataBind();
 
-                targetPositions.Clear();
+            //    var targetPositions = context.Positions.ToList();
+            //    foreach (var position in targetPositions)
+            //    {
+            //        PositionDdl.Items.Add(new ListItem()
+            //        {
+            //            Value = position.PositionId.ToString(),
+            //            Text = position.PositionName
+            //        });
+            //    }
+
+            //    targetPositions.Clear();
 
 
-            }
+            //}
 
             //Show Employees by Positions from DataBase
-            int selectedPosId = int.Parse(PositionDdl.SelectedValue);
+
+            //int selectedPosId = int.Parse(PositionDdl.SelectedValue);
 
             //Grid View from employees
-            var gridData = context.Users.ToList()
-                .Where(y => y.PositionId == selectedPosId)
-                .Select(x => new EmployeeView()
-                {
-                    Id = x.Id,
-                    FirstName = x.FirstName,
-                    LastName = x.LastName,
-                    Email = x.Email,
 
-                })
-                .ToList();
+            //var gridData = context.Users.ToList()
+            //    .Where(y => y.PositionId == selectedPosId)
+            //    .Select(x => new EmployeeView()
+            //    {
+            //        Id = x.Id,
+            //        FirstName = x.FirstName,
+            //        LastName = x.LastName,
+            //        Email = x.Email,
+
+            //    })
+            //    .ToList();
 
 
-            EmployeesGV.DataSource = gridData;
-            EmployeesGV.DataBind();
-           
+            //EmployeesGV.DataSource = gridData;
+            //EmployeesGV.DataBind();
+
         }
-    
+
         //Hide an existing column "IsSelected" and Id
         protected void EmployeesGV_RowDataBound(object sender, GridViewRowEventArgs e)
         {
@@ -96,8 +99,8 @@ namespace TargetSystem
                 TargetDescription = textArea.Value,
                 TargetType = (TargetType)Enum.Parse(typeof(TargetType), TargetTypeRbl.SelectedValue),
                 Creator = HttpContext.Current.User.Identity.Name,
-                StartDate = StartDateCal.SelectedDate.Date,
-                EndDate = EndDateCal.SelectedDate.Date
+                //StartDate = StartDateCal.SelectedDate.Date,
+                //EndDate = EndDateCal.SelectedDate.Date
 
             };
             //Add create Target in TargetsTable
@@ -134,6 +137,9 @@ namespace TargetSystem
             //Response.Redirect("~/Default.aspx");
         }
 
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

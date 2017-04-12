@@ -40,49 +40,40 @@ namespace TargetSystem {
         protected global::System.Web.UI.WebControls.RadioButtonList TargetTypeRbl;
         
         /// <summary>
-        /// PositionDdl control.
+        /// calendarLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList PositionDdl;
+        protected global::System.Web.UI.WebControls.Label calendarLabel;
         
         /// <summary>
-        /// UpdatePanelEmployee control.
+        /// CalendarTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanelEmployee;
+        protected global::System.Web.UI.WebControls.TextBox CalendarTextBox;
         
         /// <summary>
-        /// EmployeesGV control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView EmployeesGV;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// StartDateCal control.
+        /// TextBox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar StartDateCal;
-        
-        /// <summary>
-        /// EndDateCal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar EndDateCal;
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
         
         /// <summary>
         /// CreateButton control.

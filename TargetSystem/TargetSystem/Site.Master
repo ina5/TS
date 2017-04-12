@@ -14,12 +14,12 @@
     </asp:PlaceHolder>
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/Images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
+    <link href="/Content/style.css" rel="Stylesheet" type="text/css" />
+    <link href="~/Images/Picture1.png" rel="image_src" type="image/png" />
 </head>
 
 <body>
     <form runat="server">
-        <link href="~/Content/style.css" rel="Stylesheet"  type="text/css" />
         <asp:ScriptManager runat="server">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
@@ -50,7 +50,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" runat="server"></a>
-                    <img src="Images/Picture1.png" />
+                    <img class="logo" src="/Images/Picture1.png" />
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
