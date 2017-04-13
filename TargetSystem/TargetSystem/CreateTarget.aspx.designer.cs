@@ -40,40 +40,40 @@ namespace TargetSystem {
         protected global::System.Web.UI.WebControls.RadioButtonList TargetTypeRbl;
         
         /// <summary>
-        /// calendarLabel control.
+        /// calendarStartLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label calendarLabel;
+        protected global::System.Web.UI.WebControls.Label calendarStartLabel;
         
         /// <summary>
-        /// CalendarTextBox control.
+        /// CalendarStartTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CalendarTextBox;
+        protected global::System.Web.UI.WebControls.TextBox CalendarStartTB;
         
         /// <summary>
-        /// Label1 control.
+        /// calendarEndLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label calendarEndLabel;
         
         /// <summary>
-        /// TextBox1 control.
+        /// CalendarEndTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox CalendarEndTB;
         
         /// <summary>
         /// CreateButton control.

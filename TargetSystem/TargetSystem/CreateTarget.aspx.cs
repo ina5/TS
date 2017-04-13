@@ -9,6 +9,8 @@ using TargetSystem.Migrations;
 using System.Data.SqlClient;
 using Microsoft.AspNet.Identity;
 using TargetSystem.ViewModel;
+using System.Threading;
+using System.Globalization;
 
 namespace TargetSystem
 {
@@ -17,27 +19,29 @@ namespace TargetSystem
         TSDbContext context = new TSDbContext();
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (!IsPostBack)
-            //{
-            //    //Show Positions from DataBase
+           
+            if (!IsPostBack)
+            {
 
-            TargetTypeRbl.DataSource = Enum.GetNames(typeof(TargetType));
-            TargetTypeRbl.DataBind();
+                //    //Show Positions from DataBase
 
-            //    var targetPositions = context.Positions.ToList();
-            //    foreach (var position in targetPositions)
-            //    {
-            //        PositionDdl.Items.Add(new ListItem()
-            //        {
-            //            Value = position.PositionId.ToString(),
-            //            Text = position.PositionName
-            //        });
-            //    }
+                TargetTypeRbl.DataSource = Enum.GetNames(typeof(TargetType));
+                TargetTypeRbl.DataBind();
 
-            //    targetPositions.Clear();
+                //    var targetPositions = context.Positions.ToList();
+                //    foreach (var position in targetPositions)
+                //    {
+                //        PositionDdl.Items.Add(new ListItem()
+                //        {
+                //            Value = position.PositionId.ToString(),
+                //            Text = position.PositionName
+                //        });
+                //    }
+
+                //    targetPositions.Clear();
 
 
-            //}
+            }
 
             //Show Employees by Positions from DataBase
 
@@ -93,16 +97,18 @@ namespace TargetSystem
         {
 
             //Create Target
-            Target target = new Target()
-            {
-                TargetGoal = goalTextBox.Text,
-                TargetDescription = textArea.Value,
-                TargetType = (TargetType)Enum.Parse(typeof(TargetType), TargetTypeRbl.SelectedValue),
-                Creator = HttpContext.Current.User.Identity.Name,
-                //StartDate = StartDateCal.SelectedDate.Date,
-                //EndDate = EndDateCal.SelectedDate.Date
+            Target target = new Target();
 
-            };
+            target.TargetGoal = goalTextBox.Text;
+            target.TargetDescription = textArea.Value;
+            target.TargetType = (TargetType)Enum.Parse(typeof(TargetType), TargetTypeRbl.SelectedItem.Text);
+
+            target.Creator = HttpContext.Current.User.Identity.Name;
+
+            //Working on a start and end Date
+            //Thread.CurrentThread.CurrentCulture = new CultureInfo("bg-BG");
+            target.StartDate = DateTime.ParseExact(CalendarStartTB.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            target.EndDate = DateTime.ParseExact(CalendarEndTB.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             //Add create Target in TargetsTable
             context.Targets.Add(target);
 

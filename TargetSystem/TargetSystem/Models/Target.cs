@@ -30,10 +30,16 @@
 
         public virtual TargetType TargetType { get; set; }
 
-        public decimal TargetPercent { get; set; }
+        public decimal? TargetPercent { get; set; }
 
+        //[Required]
+        //[DataType(DataType.Date)]
+        //[DisplayFormat(DataFormatString = "{dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime StartDate { get; set; }
 
+        //[Required]
+        //[DataType(DataType.Date)]
+        //[DisplayFormat(DataFormatString = "{dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime EndDate { get; set; }
 
 

@@ -41,3 +41,9 @@ input[type=number],
     width: 30px;
     height: 25px;
 }
+
+.clear {
+    clear: both;
+    box-sizing: border-box;
+    margin-bottom:20px;
+}
