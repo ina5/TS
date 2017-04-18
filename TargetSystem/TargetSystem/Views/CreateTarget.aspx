@@ -4,7 +4,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
-        <h2><%: Title %>.</h2>
+        <h2><%: Title. %></h2>
         <div class="clear"></div>
         <div class="row">
             <div class="form-group">
@@ -43,7 +43,7 @@
                 <asp:Label class="col-lg-2 control-label" ID="calendarStartLabel" runat="server" Text="Start date"></asp:Label>
                 <div class="col-md-4">
                     <asp:TextBox ID="CalendarStartTB" runat="server" ></asp:TextBox>
-                    <img class="calendar" src="Images/calendar.ico" />
+                    <img class="calendar" src="/Images/calendar.ico" />
                 </div>
             </div>
 
@@ -52,7 +52,7 @@
 
                 <div class="col-md-4">
                     <asp:TextBox ID="CalendarEndTB" runat="server" ></asp:TextBox>
-                    <img class="calendar" src="Images/calendar.ico" />
+                    <img class="calendar" src="/Images/calendar.ico" />
 
                 </div>
             </div>
@@ -69,10 +69,12 @@
             </div>
         </div>
     </div>
-    <script src="Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
-    <script src="Scripts/jquery.dynDateTime.min.js" type="text/javascript"></script>
-    <script src="Scripts/calendar-en.min.js" type="text/javascript"></script>
-    <link href="Content/calendar-blue.css" rel="stylesheet" type="text/css" />
+
+
+    <script src="/Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="/Scripts/jquery.dynDateTime.min.js" type="text/javascript"></script>
+    <script src="/Scripts/calendar-en.min.js" type="text/javascript"></script>
+    <link href="/Content/calendar-blue.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript">
         $(document).ready(function () {
             $("#<%=CalendarStartTB.ClientID %>").dynDateTime({

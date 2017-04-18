@@ -206,7 +206,7 @@
     <Content Include="Content\calendar-blue.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
-    <Content Include="CreateTarget.aspx" />
+    <Content Include="Views\CreateTarget.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -220,7 +220,7 @@
     <Content Include="Images\calendar.ico" />
     <Content Include="Images\favicon.ico" />
     <Content Include="Images\Picture1.png" />
-    <Content Include="ListTargets.aspx" />
+    <Content Include="Views\ListTargets.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\calendar-en.min.js" />
@@ -258,6 +258,7 @@
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Views\TargetDetails.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="packages.config" />
@@ -363,11 +364,11 @@
     <Compile Include="Account\ResetPasswordConfirmation.aspx.designer.cs">
       <DependentUpon>ResetPasswordConfirmation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ListTargets.aspx.cs">
+    <Compile Include="Views\ListTargets.aspx.cs">
       <DependentUpon>ListTargets.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ListTargets.aspx.designer.cs">
+    <Compile Include="Views\ListTargets.aspx.designer.cs">
       <DependentUpon>ListTargets.aspx</DependentUpon>
     </Compile>
     <Compile Include="Services\MyEmailService.cs" />
@@ -404,11 +405,11 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CreateTarget.aspx.cs">
+    <Compile Include="Views\CreateTarget.aspx.cs">
       <DependentUpon>CreateTarget.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CreateTarget.aspx.designer.cs">
+    <Compile Include="Views\CreateTarget.aspx.designer.cs">
       <DependentUpon>CreateTarget.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
@@ -451,6 +452,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TargetDetails.aspx.cs">
+      <DependentUpon>TargetDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TargetDetails.aspx.designer.cs">
+      <DependentUpon>TargetDetails.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -140,7 +140,7 @@ namespace TargetSystem
             goalTextBox.Text = String.Empty;
             textArea.InnerText = String.Empty;
 
-            //Response.Redirect("~/Default.aspx");
+            Response.Redirect("~/Default.aspx");
         }
 
         protected void btnSave_Click(object sender, EventArgs e)

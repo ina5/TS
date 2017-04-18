@@ -7,7 +7,7 @@
             <Columns>
                 <asp:BoundField DataField="TargetGoal" HeaderText="TargetGoal" SortExpression="TargetGoal" />
                 <asp:BoundField DataField="TargetType" HeaderText="TargetType" SortExpression="TargetType" />
-                <asp:BoundField DataField="CreatorId" HeaderText="CreatorId" SortExpression="CreatorId" />
+<%--                <asp:BoundField DataField="CreatorId" HeaderText="CreatorId" SortExpression="CreatorId" />--%>
                 <asp:ButtonField ButtonType="Button" CommandName="Select" HeaderText="Look More" ShowHeader="True" Text="Details" />
             </Columns>
         </asp:GridView>
