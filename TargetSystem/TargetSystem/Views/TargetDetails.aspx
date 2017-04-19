@@ -15,22 +15,24 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 class="panel-title">
-                            <asp:Label ID="TGoalL" runat="server" Text="TGoalL"></asp:Label></h3>
+                            <asp:Label ID="TGoalL" runat="server" Text=""></asp:Label></h3>
                     </div>
                     <div class="panel-body">
                         <div class="row">
-                            <label class="col-lg-3 control-label">Description</label>
-                            <div class="col-lg-9">
-                                <div class="pull-right">
-                                    <asp:Label ID="DescriptionL" runat="server" Text="DescriptionL"></asp:Label>
+                            <asp:RangeValidator ID="DescriptionRV" runat="server" ErrorMessage="RangeValidator" MinimumValue="0" MaximumValue="400">
+                                <label class="col-lg-3 control-label">Description</label>
+                                <div class="col-lg-9">
+                                    <div class="pull-right">
+                                        <asp:Label ID="TDescriptionL" Style="text-align: right" runat="server" Text="DescriptionL"></asp:Label>
+                                    </div>
                                 </div>
-                            </div>
+                            </asp:RangeValidator>
                         </div>
                         <div class="row">
                             <label class="col-lg-3 control-label">Type</label>
                             <div class="col-lg-9">
                                 <div class="pull-right">
-                                    <asp:Label ID="TypeL" runat="server" Text="TypeL"></asp:Label>
+                                    <asp:Label ID="TTypeL" runat="server" Text="TypeL"></asp:Label>
                                 </div>
                             </div>
                         </div>
@@ -38,7 +40,7 @@
                             <label class="col-lg-3 control-label">Start Date</label>
                             <div class="col-lg-9">
                                 <div class="pull-right">
-                                    <asp:Label ID="StartDateL" runat="server" Text="StartDateL"></asp:Label>
+                                    <asp:Label ID="TStartDateL" runat="server" Text="StartDateL"></asp:Label>
                                 </div>
                             </div>
                         </div>
@@ -46,7 +48,7 @@
                             <label class="col-lg-3 control-label">End Date</label>
                             <div class="col-lg-9">
                                 <div class="pull-right">
-                                    <asp:Label ID="EndDateL" runat="server" Text="EndDateL"></asp:Label>
+                                    <asp:Label ID="TEndDateL" runat="server" Text="EndDateL"></asp:Label>
                                 </div>
                             </div>
                         </div>
@@ -63,7 +65,6 @@
                     </asp:CheckBoxList>
                 </asp:Panel>
 
-                <%-- <asp:CheckBoxList ID="EmployeesCbl" CssClass="checkbox" RepeatDirection="Vertical" RepeatColumns="3" runat="server"></asp:CheckBoxList>--%>
             </div>
         </div>
     </div>

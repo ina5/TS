@@ -11,7 +11,7 @@ body {
     /*font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
     font-size: 18px;
     line-height: 1.42857143;
-    color: black;
+    color: #000000;
     background-image: url(../Images/background.jpg)
 }
 
@@ -47,4 +47,3 @@ input[type=number],
     box-sizing: border-box;
     margin-bottom: 20px;
 }
-

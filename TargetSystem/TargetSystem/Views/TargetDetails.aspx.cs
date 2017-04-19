@@ -10,13 +10,24 @@ namespace TargetSystem.Views
 {
     public partial class TargetDetails : System.Web.UI.Page
     {
+
         HashSet<ListItem> items = new HashSet<ListItem>();
         TSDbContext context = new TSDbContext();
         protected void Page_Load(object sender, EventArgs e)
         {
+            int id = int.Parse(Request.QueryString["id"]);
+
+            //Take TargetDetails with given Id
+            var currentTarget = context.Targets.Find(id);
+
 
             if (!IsPostBack)
             {
+                TGoalL.Text = currentTarget.TargetGoal;
+                TDescriptionL.Text = currentTarget.TargetDescription;
+                TTypeL.Text = currentTarget.TargetType.ToString();
+                TStartDateL.Text = currentTarget.StartDate.ToShortDateString();
+                TEndDateL.Text = currentTarget.EndDate.ToShortDateString();
                 // Populate positions
                 var positions = context.Positions.ToList();
                 foreach (var pos in positions)

@@ -19,7 +19,7 @@ namespace TargetSystem
         TSDbContext context = new TSDbContext();
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
             if (!IsPostBack)
             {
 
@@ -106,7 +106,6 @@ namespace TargetSystem
             target.Creator = HttpContext.Current.User.Identity.Name;
 
             //Working on a start and end Date
-            //Thread.CurrentThread.CurrentCulture = new CultureInfo("bg-BG");
             target.StartDate = DateTime.ParseExact(CalendarStartTB.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             target.EndDate = DateTime.ParseExact(CalendarEndTB.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             //Add create Target in TargetsTable
@@ -139,8 +138,8 @@ namespace TargetSystem
 
             goalTextBox.Text = String.Empty;
             textArea.InnerText = String.Empty;
-
-            Response.Redirect("~/Default.aspx");
+            Response.Redirect("TargetDetails.aspx?id=" + currentTarget.TargetsId);
+            //Response.Redirect("~/Views/TargetDetails.aspx");
         }
 
         protected void btnSave_Click(object sender, EventArgs e)

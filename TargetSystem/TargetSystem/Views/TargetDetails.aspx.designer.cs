@@ -40,40 +40,49 @@ namespace TargetSystem.Views {
         protected global::System.Web.UI.WebControls.Label TGoalL;
         
         /// <summary>
-        /// DescriptionL control.
+        /// DescriptionRV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label DescriptionL;
+        protected global::System.Web.UI.WebControls.RangeValidator DescriptionRV;
         
         /// <summary>
-        /// TypeL control.
+        /// TDescriptionL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label TypeL;
+        protected global::System.Web.UI.WebControls.Label TDescriptionL;
         
         /// <summary>
-        /// StartDateL control.
+        /// TTypeL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label StartDateL;
+        protected global::System.Web.UI.WebControls.Label TTypeL;
         
         /// <summary>
-        /// EndDateL control.
+        /// TStartDateL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label EndDateL;
+        protected global::System.Web.UI.WebControls.Label TStartDateL;
+        
+        /// <summary>
+        /// TEndDateL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label TEndDateL;
         
         /// <summary>
         /// EmpListPanel control.
