@@ -4,7 +4,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
-        <h2><%: Title. %></h2>
+        <h2><%: Title %>.</h2>
         <div class="clear"></div>
         <div class="row">
             <div class="form-group">
@@ -42,7 +42,7 @@
             <div>
                 <asp:Label class="col-lg-2 control-label" ID="calendarStartLabel" runat="server" Text="Start date"></asp:Label>
                 <div class="col-md-4">
-                    <asp:TextBox ID="CalendarStartTB" runat="server" ></asp:TextBox>
+                    <asp:TextBox ID="CalendarStartTB" runat="server"></asp:TextBox>
                     <img class="calendar" src="/Images/calendar.ico" />
                 </div>
             </div>
@@ -51,7 +51,7 @@
                 <asp:Label class="col-lg-1 control-label" ID="calendarEndLabel" runat="server" Text="End date"></asp:Label>
 
                 <div class="col-md-4">
-                    <asp:TextBox ID="CalendarEndTB" runat="server" ></asp:TextBox>
+                    <asp:TextBox ID="CalendarEndTB" runat="server"></asp:TextBox>
                     <img class="calendar" src="/Images/calendar.ico" />
 
                 </div>

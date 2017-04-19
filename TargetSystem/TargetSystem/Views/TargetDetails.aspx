@@ -3,12 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="container">
-        <h2>Target Details.</h2>
+        <h2><%: Title %>.</h2>
         <div class="row">
             <div class="col-lg-6">
                 <asp:Label ID="PositionsL" runat="server" CssClass="col-lg-12" Text="Select Position:"></asp:Label>
                 <div class="col-lg-6">
-                    <asp:DropDownList ID="PositionDdl" CssClass="form-control" runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="PositionDdl" AutoPostBack="true" CssClass="form-control" runat="server"></asp:DropDownList>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -57,13 +57,11 @@
         <div class="col-lg-12">
             <div class="row">
 
-                <%-- ????? --%>
-                <asp:UpdatePanel ID="UpdatePanelEmployee" runat="server">
-                    <ContentTemplate>
-                        <asp:CheckBoxList ID="EmployeesCbl" OnRowCommand="EmployeeGv_RowCommand" OnRowDataBound="EmployeesGV_RowDataBound" runat="server">
-                        </asp:CheckBoxList>
-                    </ContentTemplate>
-                </asp:UpdatePanel>
+
+                <asp:Panel ID="EmpListPanel" Visible="false" runat="server">
+                    <asp:CheckBoxList ID="EmployeesCbl" CssClass="checkbox" RepeatLayout="Table" RepeatDirection="Vertical" RepeatColumns="3" runat="server">
+                    </asp:CheckBoxList>
+                </asp:Panel>
 
                 <%-- <asp:CheckBoxList ID="EmployeesCbl" CssClass="checkbox" RepeatDirection="Vertical" RepeatColumns="3" runat="server"></asp:CheckBoxList>--%>
             </div>

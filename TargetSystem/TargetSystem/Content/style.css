@@ -45,5 +45,6 @@ input[type=number],
 .clear {
     clear: both;
     box-sizing: border-box;
-    margin-bottom:20px;
+    margin-bottom: 20px;
 }
+

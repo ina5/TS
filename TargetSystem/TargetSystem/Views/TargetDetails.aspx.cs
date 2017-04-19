@@ -10,9 +10,11 @@ namespace TargetSystem.Views
 {
     public partial class TargetDetails : System.Web.UI.Page
     {
+        HashSet<ListItem> items = new HashSet<ListItem>();
         TSDbContext context = new TSDbContext();
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (!IsPostBack)
             {
                 // Populate positions
@@ -26,41 +28,45 @@ namespace TargetSystem.Views
                     });
                 }
                 positions.Clear();
+                //PositionDdl.SelectedIndex = -1;
+            }
 
-                int selectedPosId = int.Parse(PositionDdl.SelectedValue);
-                //?????
+            //int selectedPosId = int.Parse(PositionDdl.SelectedValue);
+            if (PositionDdl.SelectedIndex != -1)
+            {
+                EmpListPanel.Visible = true;
+                var posId = int.Parse(PositionDdl.SelectedValue);
+                var selectedPos = context.Positions.Find(posId);
+                var employees = context.Users.Where(y => y.PositionId == selectedPos.PositionId).ToList();
 
-                //var EmployeeCbl = context.Users.ToList()
-                //    .Where(y => y.PositionId == selectedPosId)
-                //    .Select(x => new Emp()
-                //    {
-                //        Id = x.Id,
-                //        FirstName = x.FirstName,
-                //        LastName = x.LastName,
-                //        Email = x.Email,
-
-                //    })
-                //    .ToList();
-
-
-                //Emp.DataSource = EmployeeCbl;
-                //Emp.DataBind();
-
-                // Populate Employees
-                var employees = context.Users.Where(x => x.Email != "admin@admin.com").Where(y => y.PositionId == selectedPosId).ToList();
 
                 foreach (var emp in employees)
                 {
-                    EmployeesCbl.Items.Add(new ListItem
+                    items.Add(new ListItem
                     {
                         Text = string.Concat(emp.FirstName, " ", emp.Surname, " ", emp.LastName),
                         Value = emp.Id,
                         Selected = true
                     });
                 }
-                //employees.Clear();
+
+                EmployeesCbl.DataSource = items;
+                EmployeesCbl.DataBind();
+
+                employees.Clear();
+                items.Clear();
+
+                foreach (ListItem item in EmployeesCbl.Items)
+                {
+                    item.Selected = true;
+                    item.Attributes.Add("class", "form-control");
+                }
+
 
             }
+            // Populate Employees
+
+
         }
     }
 }
