@@ -1,17 +1,16 @@
-﻿<%@ Page Title="List Target" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ListTargets.aspx.cs" Inherits="TargetSystem.ListTargets" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ListTargets.aspx.cs" Inherits="TargetSystem.ListTargets" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
-    <div>
-        <asp:GridView ID="TargetsGV" runat="server" AutoGenerateColumns="False" DataSourceID="DataTargets">
-            <Columns>
-                <asp:BoundField DataField="TargetGoal" HeaderText="TargetGoal" SortExpression="TargetGoal" />
-                <asp:BoundField DataField="TargetType" HeaderText="TargetType" SortExpression="TargetType" />
-<%--                <asp:BoundField DataField="CreatorId" HeaderText="CreatorId" SortExpression="CreatorId" />--%>
-                <asp:ButtonField ButtonType="Button" CommandName="Select" HeaderText="Look More" ShowHeader="True" Text="Details" />
-            </Columns>
-        </asp:GridView>
-        <asp:SqlDataSource ID="DataTargets" runat="server" ConnectionString="<%$ ConnectionStrings:TargetSystem %>" SelectCommand="SELECT DISTINCT [TargetGoal], [TargetType], [CreatorId] FROM [Targets]"></asp:SqlDataSource>
-    </div>
-
+      <h5><%: Title %></h5>
+    
+    <asp:GridView ID="TargetsGV" OnRowCommand="Grid_RowCommand" OnRowDataBound="TargetsGV_RowDataBound" runat="server" Width="1150px" CssClass="table  table-bordered table-condensed table-hover ">
+        <Columns>
+            <asp:TemplateField ShowHeader="False">
+                <ItemTemplate>
+                    <asp:Button ID="btnDetails" runat="server" Text="Details" CommandName="Details"
+                        CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />
+                </ItemTemplate>
+            </asp:TemplateField>
+        </Columns>
+    </asp:GridView>
 </asp:Content>

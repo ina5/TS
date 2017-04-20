@@ -40,15 +40,6 @@ namespace TargetSystem.Views {
         protected global::System.Web.UI.WebControls.Label TGoalL;
         
         /// <summary>
-        /// DescriptionRV control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator DescriptionRV;
-        
-        /// <summary>
         /// TDescriptionL control.
         /// </summary>
         /// <remarks>

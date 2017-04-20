@@ -19,14 +19,14 @@
                     </div>
                     <div class="panel-body">
                         <div class="row">
-                            <asp:RangeValidator ID="DescriptionRV" runat="server" ErrorMessage="RangeValidator" MinimumValue="0" MaximumValue="400">
+                           
                                 <label class="col-lg-3 control-label">Description</label>
                                 <div class="col-lg-9">
                                     <div class="pull-right">
                                         <asp:Label ID="TDescriptionL" Style="text-align: right" runat="server" Text="DescriptionL"></asp:Label>
                                     </div>
                                 </div>
-                            </asp:RangeValidator>
+                            
                         </div>
                         <div class="row">
                             <label class="col-lg-3 control-label">Type</label>
