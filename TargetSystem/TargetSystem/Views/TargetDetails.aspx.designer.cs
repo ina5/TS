@@ -76,6 +76,15 @@ namespace TargetSystem.Views {
         protected global::System.Web.UI.WebControls.Label TEndDateL;
         
         /// <summary>
+        /// SelectEmplL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label SelectEmplL;
+        
+        /// <summary>
         /// EmpListPanel control.
         /// </summary>
         /// <remarks>
@@ -92,5 +101,14 @@ namespace TargetSystem.Views {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBoxList EmployeesCbl;
+        
+        /// <summary>
+        /// AssignB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AssignB;
     }
 }

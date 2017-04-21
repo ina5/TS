@@ -11,14 +11,20 @@ namespace TargetSystem.Views
     public partial class TargetDetails : System.Web.UI.Page
     {
 
-        HashSet<ListItem> items = new HashSet<ListItem>();
+        HashSet<ListItem> itemsEmployee = new HashSet<ListItem>();
         TSDbContext context = new TSDbContext();
+        // Declare Id
+        int id = 0;
+        // Declare currentTarget
+        Target currentTarget = null;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            int id = int.Parse(Request.QueryString["id"]);
+            // Take an Id
+            id = int.Parse(Request.QueryString["id"]);
 
             //Take TargetDetails with given Id
-            var currentTarget = context.Targets.Find(id);
+            currentTarget = context.Targets.Find(id);
 
 
             if (!IsPostBack)
@@ -42,7 +48,7 @@ namespace TargetSystem.Views
                 //PositionDdl.SelectedIndex = -1;
             }
 
-        
+
             if (PositionDdl.SelectedIndex != -1)
             {
                 EmpListPanel.Visible = true;
@@ -53,7 +59,7 @@ namespace TargetSystem.Views
 
                 foreach (var emp in employees)
                 {
-                    items.Add(new ListItem
+                    itemsEmployee.Add(new ListItem
                     {
                         Text = string.Concat(emp.FirstName, " ", emp.Surname, " ", emp.LastName),
                         Value = emp.Id,
@@ -61,12 +67,13 @@ namespace TargetSystem.Views
                     });
                 }
 
-                EmployeesCbl.DataSource = items;
+                EmployeesCbl.DataSource = itemsEmployee;
                 EmployeesCbl.DataBind();
 
                 employees.Clear();
-                items.Clear();
+                itemsEmployee.Clear();
 
+                // Show and Check all Employees
                 foreach (ListItem item in EmployeesCbl.Items)
                 {
                     item.Selected = true;
@@ -75,7 +82,16 @@ namespace TargetSystem.Views
 
 
             }
-            // Populate Employees
+
+
+
+        }
+        // 
+        protected void AssignB_Click(object sender, EventArgs e)
+        {
+            id = int.Parse(Request.QueryString["id"]);
+
+            currentTarget = context.Targets.Find(id);
 
 
         }

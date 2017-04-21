@@ -64,7 +64,7 @@ namespace TargetSystem
 
             //EmployeesGV.DataSource = gridData;
             //EmployeesGV.DataBind(); 
-           
+
 
 
             if (TargetTypeRbl.Text == "Bonus")
@@ -115,6 +115,7 @@ namespace TargetSystem
             target.TargetDescription = textArea.Value;
             target.TargetType = (TargetType)Enum.Parse(typeof(TargetType), TargetTypeRbl.SelectedItem.Text);
             target.TargetPercent = double.Parse(PercentTb.Text);
+
             target.Creator = HttpContext.Current.User.Identity.Name;
 
             //Working on a start and end Date
@@ -151,12 +152,16 @@ namespace TargetSystem
             goalTextBox.Text = String.Empty;
             textArea.InnerText = String.Empty;
             Response.Redirect("TargetDetails.aspx?id=" + currentTarget.TargetsId);
-            //Response.Redirect("~/Views/TargetDetails.aspx");
         }
 
-        protected void btnSave_Click(object sender, EventArgs e)
+        protected void CancelButton_Click(object sender, EventArgs e)
         {
-
+            goalTextBox.Text = String.Empty;
+            textArea.InnerText = String.Empty;
+            TargetTypeRbl.ClearSelection();
+            PercentTb.Text = String.Empty;
+            CalendarStartTB.Text = String.Empty;
+            CalendarEndTB.Text = String.Empty;
         }
     }
 }

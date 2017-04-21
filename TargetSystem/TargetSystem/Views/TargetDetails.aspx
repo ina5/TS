@@ -10,6 +10,7 @@
                 <div class="col-lg-6">
                     <asp:DropDownList ID="PositionDdl" AutoPostBack="true" CssClass="form-control" runat="server"></asp:DropDownList>
                 </div>
+
             </div>
             <div class="col-lg-6">
                 <div class="panel panel-primary">
@@ -19,14 +20,14 @@
                     </div>
                     <div class="panel-body">
                         <div class="row">
-                           
-                                <label class="col-lg-3 control-label">Description</label>
-                                <div class="col-lg-9">
-                                    <div class="pull-right">
-                                        <asp:Label ID="TDescriptionL" Style="text-align: right" runat="server" Text="DescriptionL"></asp:Label>
-                                    </div>
+
+                            <label class="col-lg-3 control-label">Description</label>
+                            <div class="col-lg-9">
+                                <div class="pull-right">
+                                    <asp:Label ID="TDescriptionL" Style="text-align: right" runat="server" Text="DescriptionL"></asp:Label>
                                 </div>
-                            
+                            </div>
+
                         </div>
                         <div class="row">
                             <label class="col-lg-3 control-label">Type</label>
@@ -56,6 +57,7 @@
                 </div>
             </div>
         </div>
+        <asp:Label ID="SelectEmplL" runat="server" CssClass="col-lg-12" Text="Select Employees:"></asp:Label>
         <div class="col-lg-12">
             <div class="row">
 
@@ -67,6 +69,8 @@
 
             </div>
         </div>
+        <div class="clear"></div>
+        <asp:Button ID="AssignB" CssClass="btn btn-default" runat="server" Text="Assign" />
     </div>
 
 

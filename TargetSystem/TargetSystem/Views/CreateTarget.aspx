@@ -43,7 +43,9 @@
                 <div class="form-group">
                     <asp:Label runat="server" CssClass="col-lg-2 control-label">Percent</asp:Label>
                     <div class="col-md-1">
-                        <asp:TextBox runat="server" ID="PercentTb" CssClass="form-control" />
+                        <asp:TextBox runat="server" ID="PercentTb" CausesValidation="true" CssClass="form-control" />
+                        <asp:RangeValidator ID="PercentRv" runat="server" Type="Double" ControlToValidate="PercentTb" MinimumValue="1" MaximumValue="99"
+                            ValidationGroup="valid" ForeColor="Red" ErrorMessage="Out of Range" />
                     </div>
                 </div>
             </div>
@@ -61,7 +63,7 @@
                     <div class="col-md-2">
                         <asp:TextBox ID="CalendarStartTB" CssClass="form-control" runat="server"></asp:TextBox>
                     </div>
-                   <%-- <div class="col-md-2">
+                    <%-- <div class="col-md-2">
                         <img class="calendar" src="/Images/calendar.ico" />
                     </div>--%>
                 </div>
@@ -74,11 +76,9 @@
                     <div class="col-md-2">
                         <asp:TextBox ID="CalendarEndTB" CssClass="form-control" runat="server"></asp:TextBox>
                     </div>
-                   <%-- <div class="col-md-2">
+                    <%-- <div class="col-md-2">
                         <img class="calendar" src="/Images/calendar.ico" />
                     </div>--%>
-
-
                 </div>
             </div>
 
@@ -89,7 +89,7 @@
             <div>
                 <div class="col-lg-10 col-lg-offset-2">
                     <asp:Button ID="CreateButton" CssClass="btn btn-default" runat="server" Text="Create" OnClick="CreateButton_Click" />
-                    <asp:Button ID="CancelButton" CssClass="btn btn-default" runat="server" Text="Cancel" />
+                    <asp:Button ID="CancelButton" CssClass="btn btn-default" runat="server" Text="Cancel" OnClick="CancelButton_Click" />
                 </div>
             </div>
         </div>

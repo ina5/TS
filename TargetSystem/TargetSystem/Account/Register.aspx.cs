@@ -144,6 +144,17 @@ namespace TargetSystem.Account
             pEmail.Text = String.Empty;
         }
 
-
+        protected void CancelButton_Click(object sender, EventArgs e)
+        {
+            Email.Text = String.Empty;
+            fName.Text = String.Empty;
+            surname.Text = String.Empty;
+            lName.Text = String.Empty;
+            RoleDdl.Items.Clear();
+            PositionDdl.Items.Clear();
+            Password.Text = String.Empty;
+            ConfirmPassword.Text = String.Empty;
+            pEmail.Text = String.Empty;
+        }
     }
 }
