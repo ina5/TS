@@ -43,7 +43,7 @@
                 <div class="form-group">
                     <asp:Label runat="server" CssClass="col-lg-2 control-label">Percent</asp:Label>
                     <div class="col-md-1">
-                        <asp:TextBox runat="server" ID="PercentTb"  CssClass="form-control" />
+                        <asp:TextBox runat="server" ID="PercentTb" CssClass="form-control" />
                     </div>
                 </div>
             </div>
@@ -56,19 +56,28 @@
         <div class="clear"></div>
         <div class="row">
             <div>
-                <asp:Label class="col-lg-2 control-label" ID="calendarStartLabel" runat="server" Text="Start date"></asp:Label>
-                <div class="col-md-4">
-                    <asp:TextBox ID="CalendarStartTB" runat="server"></asp:TextBox>
-                    <img class="calendar" src="/Images/calendar.ico" />
+                <div>
+                    <asp:Label class="col-lg-2 control-label" ID="calendarStartLabel" runat="server" Text="Start date"></asp:Label>
+                    <div class="col-md-2">
+                        <asp:TextBox ID="CalendarStartTB" CssClass="form-control" runat="server"></asp:TextBox>
+                    </div>
+                   <%-- <div class="col-md-2">
+                        <img class="calendar" src="/Images/calendar.ico" />
+                    </div>--%>
                 </div>
             </div>
 
             <div>
-                <asp:Label class="col-lg-1 control-label" ID="calendarEndLabel" runat="server" Text="End date"></asp:Label>
+                <div>
+                    <asp:Label class="col-lg-1 control-label" ID="calendarEndLabel" runat="server" Text="End date"></asp:Label>
 
-                <div class="col-md-4">
-                    <asp:TextBox ID="CalendarEndTB" runat="server"></asp:TextBox>
-                    <img class="calendar" src="/Images/calendar.ico" />
+                    <div class="col-md-2">
+                        <asp:TextBox ID="CalendarEndTB" CssClass="form-control" runat="server"></asp:TextBox>
+                    </div>
+                   <%-- <div class="col-md-2">
+                        <img class="calendar" src="/Images/calendar.ico" />
+                    </div>--%>
+
 
                 </div>
             </div>
