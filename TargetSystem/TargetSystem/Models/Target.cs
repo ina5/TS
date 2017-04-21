@@ -30,7 +30,7 @@
 
         public virtual TargetType TargetType { get; set; }
 
-        public decimal? TargetPercent { get; set; }
+        public double TargetPercent { get; set; }
 
         //[Required]
         //[DataType(DataType.Date)]

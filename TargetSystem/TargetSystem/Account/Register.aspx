@@ -55,18 +55,18 @@
         <%-- Choose role --%>
 
         <div class="form-group">
-            <asp:Label ID="roleLabel" runat="server" CssClass="col-md-2 control-label">Role to the user</asp:Label>
-            <div class="col-md-10">
-                <asp:DropDownList ID="RoleDdl" runat="server" CssClass="col-md-3" AutoPostBack="True"></asp:DropDownList>
+            <asp:Label ID="roleLabel" runat="server" CssClass="col-md-2 control-label">Role</asp:Label>
+            <div class="col-md-2">
+                <asp:DropDownList ID="RoleDdl" runat="server" CssClass="form-control" AutoPostBack="True"></asp:DropDownList>
             </div>
         </div>
 
         <%-- Choose position --%>
 
         <div class="form-group">
-            <asp:Label runat="server" ID="posLabel" Visible="false" CssClass="col-md-2 control-label">Position to the user</asp:Label>
-            <div class="col-md-10">
-                <asp:DropDownList ID="PositionDdl" Visible="false" runat="server" CssClass="col-md-3"></asp:DropDownList>
+            <asp:Label runat="server" ID="posLabel" Visible="false" CssClass="col-md-2 control-label">Position</asp:Label>
+            <div class="col-md-2">
+                <asp:DropDownList ID="PositionDdl" Visible="false" runat="server" CssClass="form-control"></asp:DropDownList>
             </div>
         </div>
 
@@ -88,7 +88,7 @@
 
         </div>
         <%-- Personal email --%>
-           <div class="form-group">
+        <div class="form-group">
             <asp:Label runat="server" CssClass="col-md-2 control-label">Personal Email</asp:Label>
             <div class="col-md-10">
                 <asp:TextBox runat="server" ID="pEmail" CssClass="form-control" />

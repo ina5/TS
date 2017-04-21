@@ -63,8 +63,20 @@ namespace TargetSystem
 
 
             //EmployeesGV.DataSource = gridData;
-            //EmployeesGV.DataBind();
+            //EmployeesGV.DataBind(); 
+           
 
+
+            if (TargetTypeRbl.Text == "Bonus")
+            {
+                PercentTb.Text = string.Empty;
+                PercentTb.Enabled = true;
+            }
+            else if (TargetTypeRbl.Text == "Mandatory")
+            {
+                PercentTb.Text = 0.ToString();
+                PercentTb.Enabled = false;
+            }
         }
 
         //Hide an existing column "IsSelected" and Id
@@ -74,7 +86,7 @@ namespace TargetSystem
             //e.Row.Cells[5].Visible = false;
 
         }
-
+        //???
         protected void EmployeeGv_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int index = 0;
@@ -102,7 +114,7 @@ namespace TargetSystem
             target.TargetGoal = goalTextBox.Text;
             target.TargetDescription = textArea.Value;
             target.TargetType = (TargetType)Enum.Parse(typeof(TargetType), TargetTypeRbl.SelectedItem.Text);
-
+            target.TargetPercent = double.Parse(PercentTb.Text);
             target.Creator = HttpContext.Current.User.Identity.Name;
 
             //Working on a start and end Date

@@ -42,7 +42,7 @@ namespace TargetSystem.Views
                 //PositionDdl.SelectedIndex = -1;
             }
 
-            //int selectedPosId = int.Parse(PositionDdl.SelectedValue);
+        
             if (PositionDdl.SelectedIndex != -1)
             {
                 EmpListPanel.Visible = true;

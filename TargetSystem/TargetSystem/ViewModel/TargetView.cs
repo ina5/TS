@@ -13,7 +13,7 @@ namespace TargetSystem.ViewModel
 
         public string Type { get; set; }
 
-        public decimal? Percent { get; set; }
+        public double Percent { get; set; }
 
         public string Creator { get; set; }
     }

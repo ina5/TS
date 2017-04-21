@@ -25,14 +25,30 @@
                 </div>
             </div>
         </div>
+
         <div class="row">
             <div class="form-group">
                 <label class="col-lg-2 control-label">Type</label>
                 <div class="col-lg-10">
 
-                    <asp:RadioButtonList ID="TargetTypeRbl" runat="server"></asp:RadioButtonList>
+                    <asp:RadioButtonList ID="TargetTypeRbl" AutoPostBack="true" runat="server"></asp:RadioButtonList>
 
                 </div>
+            </div>
+        </div>
+        <%-- Target Percent --%>
+        <div class="clear"></div>
+        <div class="row">
+            <div>
+                <div class="form-group">
+                    <asp:Label runat="server" CssClass="col-lg-2 control-label">Percent</asp:Label>
+                    <div class="col-md-1">
+                        <asp:TextBox runat="server" ID="PercentTb"  CssClass="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div>
+                <asp:Label class="col-lg-1 control-label" runat="server" CssClass="col-md-2 control-label">%</asp:Label>
             </div>
         </div>
         <%-- Calendar --%>
