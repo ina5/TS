@@ -206,6 +206,7 @@
     <Content Include="Content\calendar-blue.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
+    <Content Include="Views\CompletedTargets.aspx" />
     <Content Include="Views\CreateTarget.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -220,6 +221,7 @@
     <Content Include="Images\calendar.ico" />
     <Content Include="Images\favicon.ico" />
     <Content Include="Images\Picture1.png" />
+    <Content Include="Views\CurrentTargets.aspx" />
     <Content Include="Views\ListTargets.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -363,6 +365,22 @@
     </Compile>
     <Compile Include="Account\ResetPasswordConfirmation.aspx.designer.cs">
       <DependentUpon>ResetPasswordConfirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Status.cs" />
+    <Compile Include="ViewModel\UserTargetView.cs" />
+    <Compile Include="Views\CompletedTargets.aspx.cs">
+      <DependentUpon>CompletedTargets.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\CompletedTargets.aspx.designer.cs">
+      <DependentUpon>CompletedTargets.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CurrentTargets.aspx.cs">
+      <DependentUpon>CurrentTargets.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\CurrentTargets.aspx.designer.cs">
+      <DependentUpon>CurrentTargets.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ListTargets.aspx.cs">
       <DependentUpon>ListTargets.aspx</DependentUpon>

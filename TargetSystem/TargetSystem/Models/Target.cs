@@ -43,7 +43,7 @@
         public DateTime EndDate { get; set; }
 
 
-        public virtual ICollection<ApplicationUser> ApplicationUser
+        public virtual ICollection<ApplicationUser> User
         {
             get
             {

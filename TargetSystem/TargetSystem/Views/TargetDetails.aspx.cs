@@ -11,7 +11,8 @@ namespace TargetSystem.Views
     public partial class TargetDetails : System.Web.UI.Page
     {
 
-        HashSet<ListItem> itemsEmployee = new HashSet<ListItem>();
+       
+
         TSDbContext context = new TSDbContext();
         // Declare Id
         int id = 0;
@@ -29,9 +30,11 @@ namespace TargetSystem.Views
 
             if (!IsPostBack)
             {
+                // Display Panel - Info for Current Target
                 TGoalL.Text = currentTarget.TargetGoal;
                 TDescriptionL.Text = currentTarget.TargetDescription;
                 TTypeL.Text = currentTarget.TargetType.ToString();
+                TPercentL.Text = currentTarget.TargetPercent.ToString()+" %";
                 TStartDateL.Text = currentTarget.StartDate.ToShortDateString();
                 TEndDateL.Text = currentTarget.EndDate.ToShortDateString();
                 // Populate positions
@@ -56,22 +59,23 @@ namespace TargetSystem.Views
                 var selectedPos = context.Positions.Find(posId);
                 var employees = context.Users.Where(y => y.PositionId == selectedPos.PositionId).ToList();
 
+                if (EmployeesCbl.Items.Count!=0)
+                {
+                    EmployeesCbl.Items.Clear();
+                }
 
                 foreach (var emp in employees)
                 {
-                    itemsEmployee.Add(new ListItem
+                    EmployeesCbl.Items.Add(new ListItem
                     {
                         Text = string.Concat(emp.FirstName, " ", emp.Surname, " ", emp.LastName),
                         Value = emp.Id,
-                        Selected = true
                     });
                 }
 
-                EmployeesCbl.DataSource = itemsEmployee;
-                EmployeesCbl.DataBind();
+             ;
 
                 employees.Clear();
-                itemsEmployee.Clear();
 
                 // Show and Check all Employees
                 foreach (ListItem item in EmployeesCbl.Items)
@@ -86,13 +90,26 @@ namespace TargetSystem.Views
 
 
         }
-        // 
+        // Add Id in the connection Table between Targets and Users
         protected void AssignB_Click(object sender, EventArgs e)
         {
             id = int.Parse(Request.QueryString["id"]);
 
             currentTarget = context.Targets.Find(id);
 
+            ApplicationUser selectedEmp;
+
+            foreach (ListItem emp in EmployeesCbl.Items)
+            {
+                if (emp.Selected == true)
+                {
+                   selectedEmp= (context.Users.Find(emp.Value));
+
+                    selectedEmp.Targets.Add(currentTarget);
+                    currentTarget.User.Add(selectedEmp);
+                    context.SaveChanges();
+                }
+            }
 
         }
     }

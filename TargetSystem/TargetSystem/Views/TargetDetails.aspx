@@ -37,6 +37,14 @@
                                 </div>
                             </div>
                         </div>
+                         <div class="row">
+                            <label class="col-lg-3 control-label">Percent</label>
+                            <div class="col-lg-9">
+                                <div class="pull-right">
+                                    <asp:Label ID="TPercentL" runat="server" Text="PercentL"></asp:Label>
+                                </div>
+                            </div>
+                        </div>
                         <div class="row">
                             <label class="col-lg-3 control-label">Start Date</label>
                             <div class="col-lg-9">
@@ -70,7 +78,7 @@
             </div>
         </div>
         <div class="clear"></div>
-        <asp:Button ID="AssignB" CssClass="btn btn-default" runat="server" Text="Assign" />
+        <asp:Button ID="AssignB" CssClass="btn btn-default" runat="server" Text="Assign" OnClick="AssignB_Click" />
     </div>
 
 

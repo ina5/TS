@@ -22,23 +22,8 @@ namespace TargetSystem
 
             if (!IsPostBack)
             {
-
-                //    //Show Positions from DataBase
-
                 TargetTypeRbl.DataSource = Enum.GetNames(typeof(TargetType));
                 TargetTypeRbl.DataBind();
-
-                //    var targetPositions = context.Positions.ToList();
-                //    foreach (var position in targetPositions)
-                //    {
-                //        PositionDdl.Items.Add(new ListItem()
-                //        {
-                //            Value = position.PositionId.ToString(),
-                //            Text = position.PositionName
-                //        });
-                //    }
-
-                //    targetPositions.Clear();
 
 
             }
