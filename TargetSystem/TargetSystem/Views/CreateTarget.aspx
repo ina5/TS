@@ -43,9 +43,9 @@
                 <div class="form-group">
                     <asp:Label runat="server" CssClass="col-lg-2 control-label">Percent</asp:Label>
                     <div class="col-md-1">
-                        <asp:TextBox runat="server" ID="PercentTb" CausesValidation="true" CssClass="form-control" />
+                        <asp:TextBox runat="server" ID="PercentTb"   CausesValidation="true"  CssClass="form-control" />
                         <asp:RangeValidator ID="PercentRv" runat="server" Type="Double" ControlToValidate="PercentTb" MinimumValue="1" MaximumValue="99"
-                            ValidationGroup="valid" ForeColor="Red" ErrorMessage="Out of Range" />
+                            ValidationGroup="valid" ForeColor="Red" ErrorMessage="Out of Range" />   
                     </div>
                 </div>
             </div>

@@ -54,7 +54,6 @@ namespace TargetSystem
 
             if (TargetTypeRbl.Text == "Bonus")
             {
-                PercentTb.Text = string.Empty;
                 PercentTb.Enabled = true;
             }
             else if (TargetTypeRbl.Text == "Mandatory")
