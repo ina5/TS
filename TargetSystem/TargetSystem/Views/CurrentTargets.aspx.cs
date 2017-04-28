@@ -72,24 +72,44 @@ namespace TargetSystem.Views
                 row = grid.Rows[index];
                 id = int.Parse(row.Cells[1].Text);
 
+                Mark_btn.Visible = true;
                 panelDetails.Visible = true;
 
                 currentTarget = context.Targets.Find(id);
-               
-                    TGoalL.Text = currentTarget.TargetGoal;
-                    TDescriptionL.Text = currentTarget.TargetDescription;
-                    TTypeL.Text = currentTarget.TargetType.ToString();
-                    TPercentL.Text = currentTarget.TargetPercent.ToString() + " %";
-                    TStartDateL.Text = currentTarget.StartDate.ToShortDateString();
-                    TEndDateL.Text = currentTarget.EndDate.ToShortDateString();
-                    TCreator.Text = currentTarget.Creator;
-                
+
+                TGoalL.Text = currentTarget.TargetGoal;
+                TDescriptionL.Text = currentTarget.TargetDescription;
+                TTypeL.Text = currentTarget.TargetType.ToString();
+                TPercentL.Text = currentTarget.TargetPercent.ToString() + " %";
+                TStartDateL.Text = currentTarget.StartDate.ToShortDateString();
+                TEndDateL.Text = currentTarget.EndDate.ToShortDateString();
+                TCreator.Text = currentTarget.Creator;
+
             }
 
 
 
         }
 
+        protected void Cancel_btn_Click(object sender, EventArgs e)
+        {
+            panelMark.Visible = false;
+            Mark_btn.Visible = true;
+        }
 
+        protected void Mark_btn_Click(object sender, EventArgs e)
+        {
+            panelMark.Visible = true;
+            Mark_btn.Visible = false;
+
+        }
+
+        protected void Close_btn_Click(object sender, EventArgs e)
+        {
+
+
+            panelMark.Visible = false;
+            panelDetails.Visible = false;
+        }
     }
 }

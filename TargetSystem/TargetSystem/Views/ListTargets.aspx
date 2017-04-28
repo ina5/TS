@@ -7,7 +7,7 @@
         <Columns>
             <asp:TemplateField ShowHeader="False">
                 <ItemTemplate>
-                    <asp:Button ID="btnDetails" runat="server" Text="Details" CommandName="Details"
+                    <asp:Button ID="btnDetails" class="btn btn-info" runat="server" Text="Details" CommandName="Details"
                         CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />
                 </ItemTemplate>
             </asp:TemplateField>
