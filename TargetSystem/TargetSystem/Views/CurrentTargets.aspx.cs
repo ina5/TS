@@ -13,18 +13,14 @@ namespace TargetSystem.Views
     public partial class CurrentTargets : System.Web.UI.Page
     {
         TSDbContext context = new TSDbContext();
+        Target currentTarget = null;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-
                 // Show types from DataBase
-
                 TargetTypeRbl.DataSource = Enum.GetNames(typeof(TargetType));
                 TargetTypeRbl.DataBind();
-
-
-
             }
             //  
             var targets = new List<Target>();
@@ -64,6 +60,7 @@ namespace TargetSystem.Views
 
         protected void Grid_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            // Get details for specific Target Row
             int index = 0;
             int id = -1;
             GridViewRow row;
@@ -71,11 +68,28 @@ namespace TargetSystem.Views
 
             if (e.CommandName == "Details")
             {
-                //index = Convert.ToInt32(e.CommandArgument);
-                //row = grid.Rows[index];
-                //id = int.Parse(row.Cells[1].Text);
+                index = Convert.ToInt32(e.CommandArgument);
+                row = grid.Rows[index];
+                id = int.Parse(row.Cells[1].Text);
+
+                panelDetails.Visible = true;
+
+                currentTarget = context.Targets.Find(id);
+               
+                    TGoalL.Text = currentTarget.TargetGoal;
+                    TDescriptionL.Text = currentTarget.TargetDescription;
+                    TTypeL.Text = currentTarget.TargetType.ToString();
+                    TPercentL.Text = currentTarget.TargetPercent.ToString() + " %";
+                    TStartDateL.Text = currentTarget.StartDate.ToShortDateString();
+                    TEndDateL.Text = currentTarget.EndDate.ToShortDateString();
+                    TCreator.Text = currentTarget.Creator;
+                
             }
-            //Response.Redirect("~/Views/TargetDetails.aspx?id=" + id.ToString());
+
+
+
         }
+
+
     }
 }
