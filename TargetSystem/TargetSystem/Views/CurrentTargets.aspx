@@ -87,7 +87,7 @@
 
                         <div class="col-lg-12">
                             <div class="pull-right">
-                                <asp:Button ID="Mark_btn" class="btn btn-success" runat="server" Text="Mark" OnClick="Mark_btn_Click" />
+                                <asp:Button ID="Mark_btn" class="btn btn-success" runat="server" Text="Submit" OnClick="Mark_btn_Click" />
                                 <asp:Button ID="Close_btn" class="btn btn-default" runat="server" Text="Close" OnClick="Close_btn_Click" />
                             </div>
                         </div>
@@ -104,10 +104,10 @@
                     <h3 class="panel-title">Note</h3>
                 </div>
                 <div class="panel-body">
-                    <textarea id="NoteTextArea" cols="60" rows="2"></textarea>
+                    <textarea id="NoteTextArea" runat="server" cols="60" rows="2"></textarea>
                     <div class="col-lg-12">
                         <div class="pull-right">
-                            <asp:Button ID="Send_btn" class="btn btn-success" runat="server" Text="Send" />
+                            <asp:Button ID="Send_btn" class="btn btn-success" runat="server" Text="Send" OnClick="Send_btn_Click" />
                             <asp:Button ID="Cancel_btn" class="btn btn-default" runat="server" Text="Cancel" OnClick="Cancel_btn_Click" />
                         </div>
                     </div>

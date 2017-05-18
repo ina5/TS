@@ -366,7 +366,8 @@
     <Compile Include="Account\ResetPasswordConfirmation.aspx.designer.cs">
       <DependentUpon>ResetPasswordConfirmation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Status.cs" />
+    <Compile Include="Models\TaskStatus.cs" />
+    <Compile Include="Models\TargetTask.cs" />
     <Compile Include="ViewModel\UserTargetView.cs" />
     <Compile Include="Views\CompletedTargets.aspx.cs">
       <DependentUpon>CompletedTargets.aspx</DependentUpon>

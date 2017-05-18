@@ -55,7 +55,7 @@ namespace TargetSystem.Models
 
         public Task<ClaimsIdentity> GenerateUserIdentityAsync(ApplicationUserManager manager)
         {
-            return Task.FromResult(GenerateUserIdentity(manager));
+            return System.Threading.Tasks.Task.FromResult(GenerateUserIdentity(manager));
         }
     }
 }

@@ -111,5 +111,10 @@ namespace TargetSystem.Views
             panelMark.Visible = false;
             panelDetails.Visible = false;
         }
+
+        protected void Send_btn_Click(object sender, EventArgs e)
+        {
+          string notes = NoteTextArea.Value;
+        }
     }
 }

@@ -9,7 +9,6 @@ using TargetSystem.Migrations;
 using System.Data.SqlClient;
 using Microsoft.AspNet.Identity;
 using TargetSystem.ViewModel;
-using System.Threading;
 using System.Globalization;
 
 namespace TargetSystem
@@ -17,6 +16,9 @@ namespace TargetSystem
     public partial class CreateTarget : System.Web.UI.Page
     {
         TSDbContext context = new TSDbContext();
+
+        int mondayCount = 0;
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -106,6 +108,21 @@ namespace TargetSystem
             target.StartDate = DateTime.ParseExact(CalendarStartTB.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             target.EndDate = DateTime.ParseExact(CalendarEndTB.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             //Add create Target in TargetsTable
+
+
+            //Notes Range
+
+
+            for (DateTime dt = target.StartDate; dt < target.EndDate; dt = dt.AddDays(1.0))
+            {
+                if (dt.DayOfWeek == DayOfWeek.Monday)
+                {
+                    mondayCount++;
+                }
+            }
+
+
+
             context.Targets.Add(target);
 
             context.SaveChanges();
@@ -131,6 +148,16 @@ namespace TargetSystem
             //    }
             //}
 
+            for (int i = 1; i <= mondayCount; i++)
+            {
+                var currentTask = new TargetTask();
+                currentTask.TargetId = currentTarget.TargetsId;
+                //currentTask.StatusId = 1;
+                currentTask.TaskStatus.Id = 1;
+
+                context.Tasks.Add(currentTask);
+                context.SaveChanges();
+            }
 
 
             goalTextBox.Text = String.Empty;

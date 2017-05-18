@@ -10,11 +10,16 @@
     public class Target
     {
 
+        private ICollection<TargetTask> tasks;
         private ICollection<ApplicationUser> users;
         public Target()
         {
             this.users = new HashSet<ApplicationUser>();
+            this.tasks = new HashSet<TargetTask>();
         }
+
+
+
 
         [Key]
         [Required]
@@ -42,7 +47,6 @@
         //[DisplayFormat(DataFormatString = "{dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime EndDate { get; set; }
 
-
         public virtual ICollection<ApplicationUser> User
         {
             get
@@ -52,6 +56,18 @@
             set
             {
                 this.users = value;
+            }
+        }
+
+        public virtual ICollection<TargetTask> Tasks
+        {
+            get
+            {
+                return this.tasks;
+            }
+            set
+            {
+                this.tasks = value;
             }
         }
 
