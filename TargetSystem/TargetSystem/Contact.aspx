@@ -8,19 +8,33 @@
 
         <img src="/Images/VP.jpg" alt="Smiley face" class="img-circle" height="150" width="150" />
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-<%--        <link href="/Content/bootstrap.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">--%>
+        <%--        <link href="/Content/bootstrap.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">--%>
         <a href="https://www.facebook.com/vaniimark"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
-        <a href="https://github.com/ina5"><img src="/Images/github-logo.png" class="glyphicon-align-center" height="40" width="40" /> </a>
+        <a href="https://github.com/ina5">
+            <img src="/Images/github-logo.png" class="glyphicon-align-center" height="40" width="40" />
+        </a>
         <a href="mailto:inapanova5@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
-        <div class="pull-right" style="color:#FFFFFF">
-
-            
+        <div class="pull-right" style="color: #FFFFFF">
         </div>
 
 
 
-</div>
-    <address>
+    </div>
+    <div id="map" style="width: 550px; height: 400px; background: yellow"></div>
+
+    <script>
+        function myMap() {
+            var mapOptions = {
+                center: new google.maps.LatLng(42.654225, 23.351504),
+                zoom: 10,
+                mapTypeId: google.maps.MapTypeId.HYBRID
+            }
+            var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+    <%-- <address>
         One Microsoft Way<br />
         Redmond, WA 98052-6399<br />
         <abbr title="Phone">P:</abbr>
@@ -30,5 +44,5 @@
     <address>
         <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
         <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-    </address>
+    </address>--%>
 </asp:Content>

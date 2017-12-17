@@ -52,7 +52,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <label class="col-lg-3 control-label">Percent</label>
+                        <asp:Label ID="TPercent" runat="server" class="col-lg-3 control-label">Percent</asp:Label>
                         <div class="col-lg-9">
                             <div class="pull-right">
                                 <asp:Label ID="TPercentL" runat="server" Text="PercentL"></asp:Label>

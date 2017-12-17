@@ -24,6 +24,10 @@ namespace TargetSystem.Views
             }
             //  
             var targets = new List<Target>();
+
+            //Hide PanelDetails 
+            panelDetails.Visible = false;
+
             if (TargetTypeRbl.SelectedValue == TargetType.Mandatory.ToString())
             {
                 CTargetsGV.Visible = true;
@@ -32,6 +36,8 @@ namespace TargetSystem.Views
             }
             else if (TargetTypeRbl.SelectedValue == TargetType.Bonus.ToString())
             {
+               
+
                 CTargetsGV.Visible = true;
                 var selected = (TargetType)Enum.Parse(typeof(TargetType), TargetTypeRbl.SelectedValue, true);
                 targets = context.Targets.Where(t => t.TargetType == selected).ToList();
@@ -68,6 +74,8 @@ namespace TargetSystem.Views
 
             if (e.CommandName == "Details")
             {
+
+
                 index = Convert.ToInt32(e.CommandArgument);
                 row = grid.Rows[index];
                 id = int.Parse(row.Cells[1].Text);
@@ -75,7 +83,21 @@ namespace TargetSystem.Views
                 Mark_btn.Visible = true;
                 panelDetails.Visible = true;
 
+
                 currentTarget = context.Targets.Find(id);
+
+                // Hide percent depending on TargetType:
+                if (currentTarget.TargetType.ToString() == "Mandatory")
+                {
+                    TPercent.Visible = false;
+                    TPercentL.Visible = false;
+
+                }
+                else
+                {
+                    TPercent.Visible =  true;
+                    TPercentL.Visible = true;
+                }
 
                 TGoalL.Text = currentTarget.TargetGoal;
                 TDescriptionL.Text = currentTarget.TargetDescription;
@@ -99,6 +121,9 @@ namespace TargetSystem.Views
 
         protected void Mark_btn_Click(object sender, EventArgs e)
         {
+            //Show again PanelDetails 
+            panelDetails.Visible = true;
+
             panelMark.Visible = true;
             Mark_btn.Visible = false;
 
@@ -114,7 +139,10 @@ namespace TargetSystem.Views
 
         protected void Send_btn_Click(object sender, EventArgs e)
         {
-          string notes = NoteTextArea.Value;
+            //Show again PanelDetails 
+            panelDetails.Visible = true;
+
+            string notes = NoteTextArea.Value;
         }
     }
 }
