@@ -206,6 +206,8 @@
     <Content Include="Content\calendar-blue.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
+    <Content Include="Images\github-logo.png" />
+    <Content Include="Images\VP.jpg" />
     <Content Include="Views\CompletedTargets.aspx" />
     <Content Include="Views\CreateTarget.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

@@ -69,6 +69,7 @@ namespace TargetSystem.Migrations
 
                     UserName = "admin@admin.com",
                     Email = "admin@admin.com",
+                    FirstName="Admin",
                     IsSelected = false
                 };
 
@@ -82,6 +83,7 @@ namespace TargetSystem.Migrations
                 {
                     UserName = "tmanager@abv.bg",
                     Email = "tmanager@abv.bg",
+                    FirstName="Target Manager",
                     IsSelected = false
                 };
 
