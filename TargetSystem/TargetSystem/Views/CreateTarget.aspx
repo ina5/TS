@@ -20,7 +20,7 @@
             <div class="form-group">
                 <label for="textArea" class="col-lg-2 control-label">Description</label>
                 <div class="col-lg-4">
-                    <textarea class="form-control" runat="server" rows="3" id="textArea"></textarea>
+                    <textarea rows="4"  class="form-control" style="height: 88px; width: 280px;" runat="server" id="textArea"></textarea>
                     <span class="help-block">Set task/s</span>
                 </div>
             </div>
@@ -88,8 +88,8 @@
         <div class="row">
             <div>
                 <div class="col-lg-10 col-lg-offset-2">
-                    <asp:Button ID="CreateButton" CssClass="btn btn-default" runat="server" Text="Create" OnClick="CreateButton_Click" />
-                    <asp:Button ID="CancelButton" CssClass="btn btn-default" runat="server" Text="Cancel" OnClick="CancelButton_Click" />
+                    <asp:Button ID="CreateButton" CssClass="btn btn-default" runat="server" Text="Create" style="float:right" OnClick="CreateButton_Click" />
+                    <asp:Button ID="CancelButton" CssClass="btn btn-default" runat="server" Text="Cancel" style="float:right" OnClick="CancelButton_Click" />
                 </div>
             </div>
         </div>

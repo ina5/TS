@@ -28,17 +28,19 @@ namespace TargetSystem
                         Type = x.TargetType.ToString(),
                         Percent = x.TargetPercent,
                         Creator = x.Creator
+
+
                     })
                     .ToList();
                 TargetsGV.DataSource = gv;
                 TargetsGV.DataBind();
             }
         }
-        protected void TargetsGV_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            e.Row.Cells[1].Visible = false;
+        //protected void TargetsGV_RowDataBound(object sender, GridViewRowEventArgs e)
+        //{
+        //    e.Row.Cells[1].Visible = false;
 
-        }
+        //}
         protected void Grid_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int index = 0;
@@ -50,13 +52,15 @@ namespace TargetSystem
             {
                 index = Convert.ToInt32(e.CommandArgument);
                 row = grid.Rows[index];
-                id = int.Parse(row.Cells[1].Text);
+                id = int.Parse(row.Cells[0].Text);  // PROBLEM / I tried with [0], but the same mistake again.
             }
             Response.Redirect("~/Views/TargetDetails.aspx?id=" + id.ToString());
         }
 
+        protected void TargetsGV_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            e.Row.Cells[0].Visible = false;
 
-
-
+        }
     }
 }

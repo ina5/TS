@@ -2,22 +2,27 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Services.Description;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
 using TargetSystem.Models;
+
+
 
 namespace TargetSystem.Views
 {
     public partial class TargetDetails : System.Web.UI.Page
     {
 
-       
+
 
         TSDbContext context = new TSDbContext();
         // Declare Id
         int id = 0;
         // Declare currentTarget
         Target currentTarget = null;
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -34,7 +39,7 @@ namespace TargetSystem.Views
                 TGoalL.Text = currentTarget.TargetGoal;
                 TDescriptionL.Text = currentTarget.TargetDescription;
                 TTypeL.Text = currentTarget.TargetType.ToString();
-                TPercentL.Text = currentTarget.TargetPercent.ToString()+" %";
+                TPercentL.Text = currentTarget.TargetPercent.ToString() + " %";
                 TStartDateL.Text = currentTarget.StartDate.ToShortDateString();
                 TEndDateL.Text = currentTarget.EndDate.ToShortDateString();
                 // Populate positions
@@ -59,7 +64,7 @@ namespace TargetSystem.Views
                 var selectedPos = context.Positions.Find(posId);
                 var employees = context.Users.Where(y => y.PositionId == selectedPos.PositionId).ToList();
 
-                if (EmployeesCbl.Items.Count!=0)
+                if (EmployeesCbl.Items.Count != 0)
                 {
                     EmployeesCbl.Items.Clear();
                 }
@@ -93,6 +98,7 @@ namespace TargetSystem.Views
         // Add Id in the connection Table between Targets and Users
         protected void AssignB_Click(object sender, EventArgs e)
         {
+
             id = int.Parse(Request.QueryString["id"]);
 
             currentTarget = context.Targets.Find(id);
@@ -103,14 +109,18 @@ namespace TargetSystem.Views
             {
                 if (emp.Selected == true)
                 {
-                   selectedEmp= (context.Users.Find(emp.Value));
+                    selectedEmp = (context.Users.Find(emp.Value));
 
                     selectedEmp.Targets.Add(currentTarget);
                     currentTarget.User.Add(selectedEmp);
                     context.SaveChanges();
+
                 }
             }
 
+            MessageBox.Show("Task has been sent !", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
+
     }
 }

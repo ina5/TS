@@ -10,6 +10,7 @@ using System.Data.SqlClient;
 using Microsoft.AspNet.Identity;
 using TargetSystem.ViewModel;
 using System.Globalization;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace TargetSystem
 {
@@ -102,7 +103,13 @@ namespace TargetSystem
             target.TargetType = (TargetType)Enum.Parse(typeof(TargetType), TargetTypeRbl.SelectedItem.Text);
             target.TargetPercent = double.Parse(PercentTb.Text);
 
-            target.Creator = HttpContext.Current.User.Identity.Name;
+
+            //First Name of the creator
+            //target.Creator = HttpContext.Current.User.Identity.Name;
+            target.Creator = HttpContext.Current.GetOwinContext()
+                .Get<ApplicationUserManager>()
+                .FindById(Context.User.Identity.GetUserId()).FirstName;
+            
 
             //Working on a start and end Date
             target.StartDate = DateTime.ParseExact(CalendarStartTB.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);

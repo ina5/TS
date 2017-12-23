@@ -14,7 +14,7 @@
 
     <div class="clear"></div>
     <div class="col-lg-6">
-        <asp:GridView ID="CTargetsGV" OnRowCommand="Grid_RowCommand" OnRowDataBound="CTargetsGV_RowDataBound" Visible="false" runat="server" Width="500px" CssClass="table  table-bordered table-condensed table-hover">
+        <asp:GridView ID="CTargetsGV" OnRowCommand="Grid_RowCommand" OnRowDataBound="CTargetsGV_RowDataBound" Visible="false" runat="server" Width="500px" CssClass="table  table-bordered table-condensed table-hover" >
             <Columns>
                 <asp:TemplateField ShowHeader="False">
                     <ItemTemplate>

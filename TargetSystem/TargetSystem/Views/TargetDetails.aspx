@@ -14,6 +14,7 @@
             </div>
             <div class="col-lg-6">
                 <div class="panel panel-primary">
+
                     <div class="panel-heading">
                         <h3 class="panel-title">
                             <asp:Label ID="TGoalL" runat="server" Text=""></asp:Label></h3>
@@ -78,8 +79,8 @@
             </div>
         </div>
         <div class="clear"></div>
-        <asp:Button ID="AssignB" CssClass="btn btn-default" runat="server" Text="Assign" OnClick="AssignB_Click" />
+        <asp:Button ID="AssignB" CssClass="btn btn-default" runat="server" Text="Assign" style="float:right" OnClick="AssignB_Click"  />
+       
     </div>
-
-
+    
 </asp:Content>
