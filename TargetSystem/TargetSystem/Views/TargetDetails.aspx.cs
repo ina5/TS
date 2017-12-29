@@ -14,15 +14,11 @@ namespace TargetSystem.Views
 {
     public partial class TargetDetails : System.Web.UI.Page
     {
-
-
-
         TSDbContext context = new TSDbContext();
         // Declare Id
         int id = 0;
         // Declare currentTarget
         Target currentTarget = null;
-
 
         protected void Page_Load(object sender, EventArgs e)
         {

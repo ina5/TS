@@ -36,26 +36,27 @@ namespace TargetSystem.Views
             }
             else if (TargetTypeRbl.SelectedValue == TargetType.Bonus.ToString())
             {
-               
+
 
                 CTargetsGV.Visible = true;
                 var selected = (TargetType)Enum.Parse(typeof(TargetType), TargetTypeRbl.SelectedValue, true);
                 targets = context.Targets.Where(t => t.TargetType == selected).ToList();
             }
 
-            var gv = targets.Select(x => new UserTargetView()
-            {
-                Id = x.TargetsId,
-                Goal = x.TargetGoal,
-                Percent = x.TargetPercent,
+            
+                var gv = targets.Select(x => new UserTargetView()
+                {
+                    Id = x.TargetsId,
+                    Goal = x.TargetGoal,
+                    Percent = x.TargetPercent,
 
-            })
-                                     .ToList();
-            CTargetsGV.DataSource = gv;
-            CTargetsGV.DataBind();
+                })
+                                         .ToList();
+                CTargetsGV.DataSource = gv;
+                CTargetsGV.DataBind();
 
-            targets.Clear();
-
+                targets.Clear();
+            
 
         }
         protected void CTargetsGV_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -78,7 +79,7 @@ namespace TargetSystem.Views
 
                 index = Convert.ToInt32(e.CommandArgument);
                 row = grid.Rows[index];
-                id = int.Parse(row.Cells[1].Text);
+                id = int.Parse(row.Cells[0].Text);
 
                 Mark_btn.Visible = true;
                 panelDetails.Visible = true;
@@ -95,7 +96,7 @@ namespace TargetSystem.Views
                 }
                 else
                 {
-                    TPercent.Visible =  true;
+                    TPercent.Visible = true;
                     TPercentL.Visible = true;
                 }
 
@@ -106,6 +107,7 @@ namespace TargetSystem.Views
                 TStartDateL.Text = currentTarget.StartDate.ToShortDateString();
                 TEndDateL.Text = currentTarget.EndDate.ToShortDateString();
                 TCreator.Text = currentTarget.Creator;
+
 
             }
 

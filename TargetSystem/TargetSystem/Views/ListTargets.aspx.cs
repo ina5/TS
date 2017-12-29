@@ -19,8 +19,8 @@ namespace TargetSystem
                 TSDbContext context = new TSDbContext();
                 var gv = context.Targets.Include(x => x.TargetGoal)
                     .Include(x => x.TargetType)
-                    .Include(x => x.TargetPercent)
-                    .Include(x => x.Creator)
+                //    .Include(x => x.TargetPercent)
+                //    .Include(x => x.Creator)
                     .Select(x => new TargetView()
                     {
                         Id = x.TargetsId,
@@ -36,11 +36,7 @@ namespace TargetSystem
                 TargetsGV.DataBind();
             }
         }
-        //protected void TargetsGV_RowDataBound(object sender, GridViewRowEventArgs e)
-        //{
-        //    e.Row.Cells[1].Visible = false;
-
-        //}
+        
         protected void Grid_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int index = 0;
@@ -52,7 +48,7 @@ namespace TargetSystem
             {
                 index = Convert.ToInt32(e.CommandArgument);
                 row = grid.Rows[index];
-                id = int.Parse(row.Cells[0].Text);  // PROBLEM / I tried with [0], but the same mistake again.
+                id = int.Parse(row.Cells[0].Text);  
             }
             Response.Redirect("~/Views/TargetDetails.aspx?id=" + id.ToString());
         }

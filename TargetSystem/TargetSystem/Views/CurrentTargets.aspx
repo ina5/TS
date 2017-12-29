@@ -14,11 +14,24 @@
 
     <div class="clear"></div>
     <div class="col-lg-6">
-        <asp:GridView ID="CTargetsGV" OnRowCommand="Grid_RowCommand" OnRowDataBound="CTargetsGV_RowDataBound" Visible="false" runat="server" Width="500px" CssClass="table  table-bordered table-condensed table-hover" >
+        <asp:GridView ID="CTargetsGV"
+            OnRowCommand="Grid_RowCommand"
+            OnRowDataBound="CTargetsGV_RowDataBound"
+            Visible="false"
+            ItemType="TargetSystem.ViewModel.UserTargetView"
+            runat="server"
+            Width="500px"
+            CssClass="table  table-bordered table-condensed table-hover"
+            AutoGenerateColumns="false">
             <Columns>
+
+                <asp:BoundField DataField="Id" HeaderText="Id" />
+                <asp:BoundField DataField="Goal" HeaderText="Goal" />
+                <asp:BoundField DataField="Percent" HeaderText="Percent" />
+
                 <asp:TemplateField ShowHeader="False">
                     <ItemTemplate>
-                        <asp:Button ID="btnDetails" class="btn btn-info" runat="server" Text="Details" UseSubmitBehavior="False" CommandName="Details"
+                        <asp:LinkButton ID="btnDetails" class="btn btn-info" runat="server" Text="Details"  CommandName="Details"
                             CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />
                     </ItemTemplate>
                 </asp:TemplateField>

@@ -3,7 +3,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h5><%: Title %></h5>
 
-    <asp:GridView ID="TargetsGV" OnRowCommand="Grid_RowCommand" OnRowDataBound="TargetsGV_RowDataBound" ItemType="TargetSystem.ViewModel.TargetView" runat="server" Width="1150px" CssClass="table  table-bordered table-condensed table-hover " AutoGenerateColumns="false">
+    <asp:GridView ID="TargetsGV"
+        OnRowCommand="Grid_RowCommand"
+        OnRowDataBound="TargetsGV_RowDataBound"
+        ItemType="TargetSystem.ViewModel.TargetView"
+        runat="server"
+        Width="1150px"
+        CssClass="table  table-bordered table-condensed table-hover "
+        AutoGenerateColumns="false">
         <Columns>
 
             <asp:BoundField DataField="Id" HeaderText="Id" />
@@ -11,8 +18,6 @@
             <asp:BoundField DataField="Type" HeaderText="Type" />
             <asp:BoundField DataField="Percent" HeaderText="Percent" />
             <asp:BoundField DataField="Creator" HeaderText="Creator" />
-
-
 
             <asp:TemplateField ShowHeader="False">
                 <ItemTemplate>
