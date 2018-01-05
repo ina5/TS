@@ -21,12 +21,14 @@ namespace TargetSystem.Migrations
         protected override void Seed(TSDbContext context)
         {
 
-          
+
             this.RolesSeeder(context);
             this.UsersSeeder(context);
             this.PositionsSeeder(context);
 
         }
+
+
 
         private void PositionsSeeder(TSDbContext context)
         {
@@ -45,7 +47,6 @@ namespace TargetSystem.Migrations
                 PositionId = 3,
                 PositionName = "Back-end Developer"
             });
-
         }
 
         private void UsersSeeder(TSDbContext context)
@@ -69,22 +70,20 @@ namespace TargetSystem.Migrations
 
                     UserName = "admin@admin.com",
                     Email = "admin@admin.com",
-                    FirstName="Admin",
-                    IsSelected = false
+                    FirstName = "Admin",
                 };
 
                 userManager.Create(adminUser, "123");
                 userManager.AddToRole(adminUser.Id, "admin");
             }
             //TargetManager
-             if (!context.Users.Any(u => u.UserName == "tmanager@abv.bg"))
+            if (!context.Users.Any(u => u.UserName == "tmanager@abv.bg"))
             {
                 var employeeUser = new ApplicationUser
                 {
                     UserName = "tmanager@abv.bg",
                     Email = "tmanager@abv.bg",
-                    FirstName="Target Manager",
-                    IsSelected = false
+                    FirstName = "Target Manager",
                 };
 
                 userManager.Create(employeeUser, "manager");
@@ -97,12 +96,11 @@ namespace TargetSystem.Migrations
                 {
                     UserName = "vani_vanito@abv.bg",
                     Email = "vani_vanito@abv.bg",
-                    IsSelected = false
                 };
 
                 userManager.Create(employeeUser, "vani");
                 userManager.AddToRole(employeeUser.Id, "employee");
-               
+
             }
         }
 

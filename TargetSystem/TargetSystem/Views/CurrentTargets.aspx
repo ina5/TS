@@ -114,10 +114,10 @@
 
             <div class="panel panel-info" runat="server" visible="false" id="panelMark">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Note</h3>
+                    <h3 class="panel-title">Report</h3>
                 </div>
                 <div class="panel-body">
-                    <textarea id="NoteTextArea" runat="server" cols="60" rows="2"></textarea>
+                    <textarea id="ReportTextArea" runat="server" cols="60" rows="2"></textarea>
                     <div class="col-lg-12">
                         <div class="pull-right">
                             <asp:Button ID="Send_btn" class="btn btn-success" runat="server" Text="Send" OnClick="Send_btn_Click" />

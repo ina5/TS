@@ -11,13 +11,11 @@
         <%--        <link href="/Content/bootstrap.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">--%>
         <a href="https://www.facebook.com/vaniimark"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
         <a href="https://github.com/ina5">
-            <img src="/Images/github-logo.png" class="glyphicon-align-center" height="40" width="40" />
+            <img src="/Images/Github-Logo.png" id="githublogo" class="glyphicon-align-center" height="40" width="40" />
         </a>
         <a href="mailto:inapanova5@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
         <div class="pull-right" style="color: #FFFFFF">
         </div>
-
-
 
     </div>
     <div id="map" style="width: 550px; height: 400px; background: yellow"></div>

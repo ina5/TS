@@ -43,25 +43,25 @@ namespace TargetSystem.Views
                 targets = context.Targets.Where(t => t.TargetType == selected).ToList();
             }
 
-            
-                var gv = targets.Select(x => new UserTargetView()
-                {
-                    Id = x.TargetsId,
-                    Goal = x.TargetGoal,
-                    Percent = x.TargetPercent,
 
-                })
-                                         .ToList();
-                CTargetsGV.DataSource = gv;
-                CTargetsGV.DataBind();
+            var gv = targets.Select(x => new UserTargetView()
+            {
+                Id = x.TargetsId,
+                Goal = x.TargetGoal,
+                Percent = x.TargetPercent,
 
-                targets.Clear();
-            
+            })
+                                     .ToList();
+            CTargetsGV.DataSource = gv;
+            CTargetsGV.DataBind();
+
+            targets.Clear();
+
 
         }
         protected void CTargetsGV_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            e.Row.Cells[1].Visible = false;
+            e.Row.Cells[0].Visible = false;
 
         }
 
@@ -108,11 +108,7 @@ namespace TargetSystem.Views
                 TEndDateL.Text = currentTarget.EndDate.ToShortDateString();
                 TCreator.Text = currentTarget.Creator;
 
-
             }
-
-
-
         }
 
         protected void Cancel_btn_Click(object sender, EventArgs e)
@@ -133,8 +129,6 @@ namespace TargetSystem.Views
 
         protected void Close_btn_Click(object sender, EventArgs e)
         {
-
-
             panelMark.Visible = false;
             panelDetails.Visible = false;
         }
@@ -143,8 +137,8 @@ namespace TargetSystem.Views
         {
             //Show again PanelDetails 
             panelDetails.Visible = true;
-
-            string notes = NoteTextArea.Value;
+            currentTarget.Report = ReportTextArea.Value;
+          
         }
     }
 }

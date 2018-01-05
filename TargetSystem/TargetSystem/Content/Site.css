@@ -32,7 +32,17 @@ input[type="select"] {
     .jumbotron {
         margin-top: 20px;
     }
+
     .body-content {
         padding: 0;
     }
 }
+
+#githublogo {
+    margin-bottom: 30px;
+    opacity: 0.5;
+}
+
+    #githublogo:hover {
+        opacity: 1;
+    }

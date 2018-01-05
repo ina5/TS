@@ -105,7 +105,6 @@ namespace TargetSystem
 
 
             //First Name of the creator
-            //target.Creator = HttpContext.Current.User.Identity.Name;
             target.Creator = HttpContext.Current.GetOwinContext()
                 .Get<ApplicationUserManager>()
                 .FindById(Context.User.Identity.GetUserId()).FirstName;
@@ -116,56 +115,12 @@ namespace TargetSystem
             target.EndDate = DateTime.ParseExact(CalendarEndTB.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             //Add create Target in TargetsTable
 
-
-            //Notes Range
-
-
-            for (DateTime dt = target.StartDate; dt < target.EndDate; dt = dt.AddDays(1.0))
-            {
-                if (dt.DayOfWeek == DayOfWeek.Monday)
-                {
-                    mondayCount++;
-                }
-            }
-
-
-
             context.Targets.Add(target);
 
             context.SaveChanges();
 
             //
             var currentTarget = context.Targets.Find(target.TargetsId);
-
-
-            //var rows = EmployeesGV.Rows;
-            //int count = EmployeesGV.Rows.Count;
-
-            //for (int i = 0; i < count; i++)
-            //{
-            //    bool isChecked = ((CheckBox)rows[i].FindControl("chkIsSelected")).Checked;
-            //    GridViewRow row;
-            //    int selectedEmployeeId;
-            //    if (isChecked)
-            //    {
-            //        row = EmployeesGV.Rows[i];
-            //        selectedEmployeeId = int.Parse(row.Cells[1].Text);
-            //        currentTarget.ApplicationUser.Add(context.Users.Find(selectedEmployeeId));
-            //        context.SaveChanges();
-            //    }
-            //}
-
-            for (int i = 1; i <= mondayCount; i++)
-            {
-                var currentTask = new TargetTask();
-                currentTask.TargetId = currentTarget.TargetsId;
-                //currentTask.StatusId = 1;
-                currentTask.TaskStatus.Id = 1;
-
-                context.Tasks.Add(currentTask);
-                context.SaveChanges();
-            }
-
 
             goalTextBox.Text = String.Empty;
             textArea.InnerText = String.Empty;

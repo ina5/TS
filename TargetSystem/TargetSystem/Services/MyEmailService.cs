@@ -12,7 +12,7 @@ namespace TargetSystem.Account.Service
     public class MyEmailService : IMyEmailService
     {
         private const string hostEmail = "managertest17@gmail.com";
-        private const string hostEmailPassword = "manager17";
+        private const string hostEmailPassword = "managertest";
         private const int port = 587;
         private const string host = "smtp.gmail.com";
         private const string subject = "Email и парола за вход в системата";

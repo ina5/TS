@@ -30,8 +30,6 @@ namespace TargetSystem.Models
         [StringLength(500)]
         public string LastName { get; set; }
 
-      public bool IsSelected { get; set; }
-
         [ForeignKey("Position")]
         public int? PositionId { get; set; }
 

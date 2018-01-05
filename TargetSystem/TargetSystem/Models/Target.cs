@@ -10,12 +10,10 @@
     public class Target
     {
 
-        private ICollection<TargetTask> tasks;
         private ICollection<ApplicationUser> users;
         public Target()
         {
             this.users = new HashSet<ApplicationUser>();
-            this.tasks = new HashSet<TargetTask>();
         }
 
 
@@ -36,16 +34,12 @@
         public virtual TargetType TargetType { get; set; }
 
         public double TargetPercent { get; set; }
-
-        //[Required]
-        //[DataType(DataType.Date)]
-        //[DisplayFormat(DataFormatString = "{dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        
         public DateTime StartDate { get; set; }
 
-        //[Required]
-        //[DataType(DataType.Date)]
-        //[DisplayFormat(DataFormatString = "{dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime EndDate { get; set; }
+
+        public string Report { get; set; }
 
         public virtual ICollection<ApplicationUser> User
         {
@@ -58,18 +52,5 @@
                 this.users = value;
             }
         }
-
-        public virtual ICollection<TargetTask> Tasks
-        {
-            get
-            {
-                return this.tasks;
-            }
-            set
-            {
-                this.tasks = value;
-            }
-        }
-
     }
 }
