@@ -43,6 +43,7 @@
             <div class="panel panel-info" visible="false" runat="server" id="panelDetails">
                 <div class="panel-heading">
                     <h3 class="panel-title">
+                        <asp:Label ID="TargetIdHiden" runat="server" Visible="false" Text=""></asp:Label>
                         <asp:Label ID="TGoalL" runat="server" Text=""></asp:Label></h3>
                 </div>
                 <div class="panel-body">
@@ -96,8 +97,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
 
+                    <div class="row">
                         <div class="col-lg-12">
                             <div class="pull-right">
                                 <asp:Button ID="Mark_btn" class="btn btn-success" runat="server" Text="Submit" OnClick="Mark_btn_Click" />

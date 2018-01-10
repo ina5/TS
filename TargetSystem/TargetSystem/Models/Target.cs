@@ -10,10 +10,10 @@
     public class Target
     {
 
-        private ICollection<ApplicationUser> users;
+        private ICollection<TargetApplicationUser> targetApplicationUser;
         public Target()
         {
-            this.users = new HashSet<ApplicationUser>();
+            this.targetApplicationUser = new HashSet<TargetApplicationUser>();
         }
 
 
@@ -39,17 +39,15 @@
 
         public DateTime EndDate { get; set; }
 
-        public string Report { get; set; }
-
-        public virtual ICollection<ApplicationUser> User
+        public virtual ICollection<TargetApplicationUser> TargetApplicationUser
         {
             get
             {
-                return this.users;
+                return this.targetApplicationUser;
             }
             set
             {
-                this.users = value;
+                this.targetApplicationUser = value;
             }
         }
     }

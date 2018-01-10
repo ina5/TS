@@ -58,7 +58,16 @@ namespace TargetSystem.Views
                 EmpListPanel.Visible = true;
                 var posId = int.Parse(PositionDdl.SelectedValue);
                 var selectedPos = context.Positions.Find(posId);
-                var employees = context.Users.Where(y => y.PositionId == selectedPos.PositionId).ToList();
+                //var employeesId = context.Users.Where(y => y.PositionId == selectedPos.PositionId).Select(u=>u.Id);
+
+                var targetId = this.currentTarget.TargetsId;
+                var userIds = context.TargetApplicationUsers
+                    .Where(x => x.TargetsId == targetId)
+                    .Select(x => x.UserId);
+
+                var employees = context.Users
+                    .Where(y => y.PositionId == selectedPos.PositionId && !userIds.Contains(y.Id))
+                    .ToList();
 
                 if (EmployeesCbl.Items.Count != 0)
                 {
@@ -107,8 +116,14 @@ namespace TargetSystem.Views
                 {
                     selectedEmp = (context.Users.Find(emp.Value));
 
-                    selectedEmp.Targets.Add(currentTarget);
-                    currentTarget.User.Add(selectedEmp);
+                    //selectedEmp.Targets.Add(currentTarget);
+                    //currentTarget.User.Add(selectedEmp);
+
+                    selectedEmp.TargetApplicationUser.Add(new TargetApplicationUser()
+                    {
+                        TargetsId = currentTarget.TargetsId,
+                        UserId = selectedEmp.Id
+                    });
                     context.SaveChanges();
 
                 }

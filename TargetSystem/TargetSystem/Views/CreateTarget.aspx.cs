@@ -135,6 +135,7 @@ namespace TargetSystem
             PercentTb.Text = String.Empty;
             CalendarStartTB.Text = String.Empty;
             CalendarEndTB.Text = String.Empty;
+
         }
     }
 }

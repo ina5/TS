@@ -265,6 +265,8 @@
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Views\ReportDetails.aspx" />
+    <Content Include="Views\ReportsList.aspx" />
     <Content Include="Views\TargetDetails.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -371,6 +373,8 @@
     <Compile Include="Account\ResetPasswordConfirmation.aspx.designer.cs">
       <DependentUpon>ResetPasswordConfirmation.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Models\TargetApplicationUser.cs" />
+    <Compile Include="ViewModel\ReportView.cs" />
     <Compile Include="ViewModel\UserTargetView.cs" />
     <Compile Include="Views\CompletedTargets.aspx.cs">
       <DependentUpon>CompletedTargets.aspx</DependentUpon>
@@ -474,6 +478,20 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReportDetails.aspx.cs">
+      <DependentUpon>ReportDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ReportDetails.aspx.designer.cs">
+      <DependentUpon>ReportDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReportsList.aspx.cs">
+      <DependentUpon>ReportsList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ReportsList.aspx.designer.cs">
+      <DependentUpon>ReportsList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\TargetDetails.aspx.cs">
       <DependentUpon>TargetDetails.aspx</DependentUpon>

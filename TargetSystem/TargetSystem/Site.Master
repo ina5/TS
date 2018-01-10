@@ -109,6 +109,10 @@
                                         </li>
 
                                     </ul>
+                                      <ul class="nav navbar-nav">
+                                        <li><a runat="server" href="~/Views/ReportsList">Reports</a></li>
+
+                                    </ul>
                                 </ContentTemplate>
                             </asp:RoleGroup>
                         </RoleGroups>

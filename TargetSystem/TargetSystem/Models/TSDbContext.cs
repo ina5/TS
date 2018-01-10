@@ -24,6 +24,8 @@ namespace TargetSystem.Models
 
         public virtual IDbSet<Target> Targets { get; set; }
 
+        public virtual IDbSet<TargetApplicationUser> TargetApplicationUsers { get; set; }
+
         //public virtual IDbSet<ApplicationUser> ApplicationUser { get; set; }
 
         public static TSDbContext Create()

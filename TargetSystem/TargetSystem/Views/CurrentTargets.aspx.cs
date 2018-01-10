@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -14,6 +15,8 @@ namespace TargetSystem.Views
     {
         TSDbContext context = new TSDbContext();
         Target currentTarget = null;
+        string currentUserId = HttpContext.Current.User.Identity.GetUserId();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -107,6 +110,7 @@ namespace TargetSystem.Views
                 TStartDateL.Text = currentTarget.StartDate.ToShortDateString();
                 TEndDateL.Text = currentTarget.EndDate.ToShortDateString();
                 TCreator.Text = currentTarget.Creator;
+                TargetIdHiden.Text = currentTarget.TargetsId.ToString();
 
             }
         }
@@ -137,8 +141,16 @@ namespace TargetSystem.Views
         {
             //Show again PanelDetails 
             panelDetails.Visible = true;
-            currentTarget.Report = ReportTextArea.Value;
-          
+
+            // context.TargetAppkicationUsers
+            //.FirstOrDefault(x => x.UserId == currentUserId && x.TargetsId == currentTarget.TargetsId)
+            //.Report = ReportTextArea.Value;
+            // context.SaveChanges();
+
+            context.TargetApplicationUsers.Find(currentUserId, int.Parse(TargetIdHiden.Text)).Report = ReportTextArea.Value;
+            context.SaveChanges();
+
+
         }
     }
 }
