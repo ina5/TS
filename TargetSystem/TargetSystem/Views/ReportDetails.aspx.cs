@@ -37,7 +37,7 @@ namespace TargetSystem.Views
                 TStartDate.Text = currentTarget.StartDate.ToShortDateString();
                 TEndDate.Text = currentTarget.EndDate.ToShortDateString();
                 TReportBy.Text = string.Concat(reportingUser.FirstName, " ", reportingUser.Surname, " ", reportingUser.LastName);
-
+                ReportLabel.Text = context.TargetApplicationUsers.Find(reportingUser.Id, currentTarget.TargetsId).Report;
                
             }
 

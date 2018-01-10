@@ -1,20 +1,17 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using TargetSystem.Models;
-using TargetSystem.Migrations;
-using System.Data.SqlClient;
-using Microsoft.AspNet.Identity;
-using TargetSystem.ViewModel;
-using System.Globalization;
-using Microsoft.AspNet.Identity.Owin;
 
-namespace TargetSystem
+namespace TargetSystem.Views
 {
-    public partial class CreateTarget : System.Web.UI.Page
+    public partial class CreateTask : System.Web.UI.Page
     {
         TSDbContext context = new TSDbContext();
 
@@ -108,7 +105,7 @@ namespace TargetSystem
             target.Creator = HttpContext.Current.GetOwinContext()
                 .Get<ApplicationUserManager>()
                 .FindById(Context.User.Identity.GetUserId()).FirstName;
-            
+
 
             //Working on a start and end Date
             target.StartDate = DateTime.ParseExact(CalendarStartTB.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
@@ -138,4 +135,5 @@ namespace TargetSystem
 
         }
     }
+
 }

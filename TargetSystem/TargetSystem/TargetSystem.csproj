@@ -212,7 +212,6 @@
     <Content Include="Images\Github-Logo.png" />
     <Content Include="Images\VP.jpg" />
     <Content Include="Views\CompletedTargets.aspx" />
-    <Content Include="Views\CreateTarget.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -226,6 +225,7 @@
     <Content Include="Images\calendar.ico" />
     <Content Include="Images\favicon.ico" />
     <Content Include="Images\Picture1.png" />
+    <Content Include="Views\CreateTask.aspx" />
     <Content Include="Views\CurrentTargets.aspx" />
     <Content Include="Views\ListTargets.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -383,6 +383,13 @@
     <Compile Include="Views\CompletedTargets.aspx.designer.cs">
       <DependentUpon>CompletedTargets.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\CreateTask.aspx.cs">
+      <DependentUpon>CreateTask.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\CreateTask.aspx.designer.cs">
+      <DependentUpon>CreateTask.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\CurrentTargets.aspx.cs">
       <DependentUpon>CurrentTargets.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -430,13 +437,6 @@
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\CreateTarget.aspx.cs">
-      <DependentUpon>CreateTarget.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\CreateTarget.aspx.designer.cs">
-      <DependentUpon>CreateTarget.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

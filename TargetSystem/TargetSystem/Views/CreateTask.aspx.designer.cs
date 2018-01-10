@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TargetSystem {
+namespace TargetSystem.Views {
     
     
-    public partial class CreateTarget {
+    public partial class CreateTask {
         
         /// <summary>
         /// goalTextBox control.

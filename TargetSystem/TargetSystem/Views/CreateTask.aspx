@@ -1,10 +1,8 @@
-﻿<%@ Page Title="Create Target" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CreateTarget.aspx.cs" Inherits="TargetSystem.CreateTarget" %>
-
-
+﻿<%@ Page Language="C#" AutoEventWireup="true"  MasterPageFile="~/Site.Master" CodeBehind="CreateTask.aspx.cs" Inherits="TargetSystem.Views.CreateTask" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
-        <h2><%: Title %>.</h2>
+        <h2><%: Title %>Create Task</h2>
         <div class="clear"></div>
         <div class="row">
             <div class="form-group">
@@ -36,7 +34,7 @@
                 </div>
             </div>
         </div>
-        <%-- Target Percent --%>
+        <%-- Task Percent --%>
         <div class="clear"></div>
         <div class="row">
             <div>
