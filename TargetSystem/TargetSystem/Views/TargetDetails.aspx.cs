@@ -55,8 +55,14 @@ namespace TargetSystem.Views
 
             if (PositionDdl.SelectedIndex != -1)
             {
-
-
+                if (PositionDdl.SelectedIndex == 0)
+                {
+                    AssignB.Visible = false;
+                }
+                else
+                {
+                    AssignB.Visible = true;  
+                }
 
                 EmpListPanel.Visible = true;
                 var posId = int.Parse(PositionDdl.SelectedValue);
