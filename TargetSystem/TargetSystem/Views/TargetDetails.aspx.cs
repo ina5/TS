@@ -55,6 +55,9 @@ namespace TargetSystem.Views
 
             if (PositionDdl.SelectedIndex != -1)
             {
+
+
+
                 EmpListPanel.Visible = true;
                 var posId = int.Parse(PositionDdl.SelectedValue);
                 var selectedPos = context.Positions.Find(posId);
@@ -128,8 +131,11 @@ namespace TargetSystem.Views
 
                 }
             }
+            // HERE
+            PositionDdl.ClearSelection();
 
             MessageBox.Show("Task has been sent !", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+          
 
         }
 

@@ -1,0 +1,5 @@
+﻿1>------ Build started: Project: TargetSystem, Configuration: Debug Any CPU ------
+1>D:\Дан Браун\УНСС\Семестър 8\TS\TargetSystem\TargetSystem\Views\CompletedTargets.aspx.cs(17,20,17,33): warning CS0219: The variable 'currentTarget' is assigned but its value is never used
+1>D:\Дан Браун\УНСС\Семестър 8\TS\TargetSystem\TargetSystem\Views\CreateTask.aspx.cs(18,13,18,24): warning CS0414: The field 'CreateTask.mondayCount' is assigned but its value is never used
+1>  TargetSystem -> D:\Дан Браун\УНСС\Семестър 8\TS\TargetSystem\TargetSystem\bin\TargetSystem.dll
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========

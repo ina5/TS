@@ -17,6 +17,8 @@ namespace TargetSystem.Views
         Target currentTarget = null;
         string currentUserId = HttpContext.Current.User.Identity.GetUserId();
 
+        List<Target> allTargetsForCurrentUser = new List<Target>();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -25,6 +27,22 @@ namespace TargetSystem.Views
                 TargetTypeRbl.DataSource = Enum.GetNames(typeof(TargetType));
                 TargetTypeRbl.DataBind();
             }
+
+
+            var currentUser = context.Users.Find(currentUserId);
+            var allTargetAppUsers = currentUser.TargetApplicationUser.ToList();
+            var targetsIds = new List<int>();
+            foreach (var item in allTargetAppUsers)
+            {
+                targetsIds.Add(item.TargetsId);
+            }
+
+
+            foreach (var targetId in targetsIds)
+            {
+                allTargetsForCurrentUser.Add(context.Targets.Find(targetId));
+            }
+
             //  
             var targets = new List<Target>();
 
@@ -35,7 +53,7 @@ namespace TargetSystem.Views
             {
                 CTargetsGV.Visible = true;
                 var selected = (TargetType)Enum.Parse(typeof(TargetType), TargetTypeRbl.SelectedValue, true);
-                targets = context.Targets.Where(t => t.TargetType == selected).ToList();
+                targets = allTargetsForCurrentUser.Where(t => t.TargetType == selected).ToList();
             }
             else if (TargetTypeRbl.SelectedValue == TargetType.Bonus.ToString())
             {
@@ -43,7 +61,7 @@ namespace TargetSystem.Views
 
                 CTargetsGV.Visible = true;
                 var selected = (TargetType)Enum.Parse(typeof(TargetType), TargetTypeRbl.SelectedValue, true);
-                targets = context.Targets.Where(t => t.TargetType == selected).ToList();
+                targets = allTargetsForCurrentUser.Where(t => t.TargetType == selected).ToList();
             }
 
 
@@ -59,6 +77,9 @@ namespace TargetSystem.Views
             CTargetsGV.DataBind();
 
             targets.Clear();
+            //       allTargetsForCurrentUser.Clear();
+
+          
 
 
         }
@@ -86,9 +107,41 @@ namespace TargetSystem.Views
 
                 Mark_btn.Visible = true;
                 panelDetails.Visible = true;
-
+                ReportTextArea.Value = "";
 
                 currentTarget = context.Targets.Find(id);
+
+                // how to get a report from database
+                var rowTAU = context.TargetApplicationUsers.
+                    Where(x => x.UserId == currentUserId
+                    && x.TargetsId == currentTarget.TargetsId).FirstOrDefault();
+                string report = null;
+
+                if (rowTAU != null)
+                {
+                    report = rowTAU.Report;
+                }
+                // condition
+                if (report != null)
+                {
+                    ReportTextArea.Value = report;
+                    ReportTextArea.Disabled = true;
+                   Send_btn.Visible = false;
+                    Mark_btn.Visible = false;
+                    Cancel_btn.Visible = false;
+                    panelMark.Visible = true;
+
+                }
+                else
+                {
+                    ReportTextArea.Disabled = false;
+                    Send_btn.Visible = true;
+                    Mark_btn.Visible = true;
+                    Cancel_btn.Visible = true;
+                    panelMark.Visible = false;
+                }
+
+
 
                 // Hide percent depending on TargetType:
                 if (currentTarget.TargetType.ToString() == "Mandatory")
@@ -141,7 +194,6 @@ namespace TargetSystem.Views
         {
             //Show again PanelDetails 
             panelDetails.Visible = true;
-
             // context.TargetAppkicationUsers
             //.FirstOrDefault(x => x.UserId == currentUserId && x.TargetsId == currentTarget.TargetsId)
             //.Report = ReportTextArea.Value;
@@ -150,6 +202,10 @@ namespace TargetSystem.Views
             context.TargetApplicationUsers.Find(currentUserId, int.Parse(TargetIdHiden.Text)).Report = ReportTextArea.Value;
             context.SaveChanges();
 
+            Mark_btn.Visible = false;
+            Cancel_btn.Visible = false;
+            Send_btn.Visible = false;
+            ReportTextArea.Disabled = true;
 
         }
     }

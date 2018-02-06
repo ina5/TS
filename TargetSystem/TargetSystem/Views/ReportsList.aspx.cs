@@ -12,27 +12,28 @@ namespace TargetSystem.Views
 {
     public partial class ReportsList : System.Web.UI.Page
     {
+        TSDbContext context = new TSDbContext();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            TSDbContext context = new TSDbContext();
             if (!IsPostBack)
             {
-                var gv = context.TargetApplicationUsers
-                                 .Include(x => x.User)
-                                 .Include(x => x.Target)
-                                 .Select(x => new ReportView()
-                                 {
-                                     TargetsId = x.TargetsId,
-                                     UserId = x.UserId,
-                                     Type = x.Target.TargetType.ToString(),
-                                     Goal = x.Target.TargetGoal,
-                                     Report = x.Report,
-                                     UserName = x.User.FirstName
-                                 })
-                                 .ToList();
+                //var gv = context.TargetApplicationUsers
+                //                 .Include(x => x.User)
+                //                 .Include(x => x.Target)
+                //                 .Select(x => new ReportView()
+                //                 {
+                //                     TargetsId = x.TargetsId,
+                //                     UserId = x.UserId,
+                //                     Type = x.Target.TargetType.ToString(),
+                //                     Goal = x.Target.TargetGoal,
+                //                     Report = x.Report,
+                //                     UserName = x.User.FirstName
+                //                 })
+                //                 .ToList();
 
-                ReportsGV.DataSource = gv;
-                ReportsGV.DataBind();
+                //ReportsGV.DataSource = gv;
+                //ReportsGV.DataBind();
             }
         }
 
@@ -50,14 +51,28 @@ namespace TargetSystem.Views
                 row = grid.Rows[index];
                 targetId = row.Cells[0].Text;
                 userId = row.Cells[1].Text;
+                Response.Redirect($"~/Views/ReportDetails.aspx?targetid={targetId}&userid={userId}");
+
             }
-            Response.Redirect($"~/Views/ReportDetails.aspx?targetid={targetId}&userid={userId}");
         }
 
-        protected void ReportsGV_RowDataBound(object sender, GridViewRowEventArgs e)
+       
+        public IQueryable<ReportView> ReportsGV_GetData()
         {
-            e.Row.Cells[0].Visible = false;
-            e.Row.Cells[1].Visible = false;
+            var gv = context.TargetApplicationUsers
+                             .Include(x => x.User)
+                             .Include(x => x.Target)
+                             .Select(x => new ReportView()
+                             {
+                                 TargetsId = x.TargetsId,
+                                 UserId = x.UserId,
+                                 Type = x.Target.TargetType.ToString(),
+                                 Goal = x.Target.TargetGoal,
+                                 Report = x.Report,
+                                 UserName = x.User.FirstName
+                             }).OrderBy(x=>x.UserName);
+            return gv;
+
         }
     }
 }

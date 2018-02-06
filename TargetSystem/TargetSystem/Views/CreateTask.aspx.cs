@@ -70,7 +70,6 @@ namespace TargetSystem.Views
             //e.Row.Cells[5].Visible = false;
 
         }
-        //???
         protected void EmployeeGv_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int index = 0;
