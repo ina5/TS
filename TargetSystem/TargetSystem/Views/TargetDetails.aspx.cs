@@ -50,6 +50,15 @@ namespace TargetSystem.Views
                 }
                 positions.Clear();
                 //PositionDdl.SelectedIndex = -1;
+
+                // Show and Check all Employees
+                foreach (ListItem item in EmployeesCbl.Items)
+                {
+                    item.Selected = true;
+                    item.Attributes.Add("class", "form-control");
+                }
+
+
             }
 
 
@@ -96,12 +105,7 @@ namespace TargetSystem.Views
 
                 employees.Clear();
 
-                // Show and Check all Employees
-                foreach (ListItem item in EmployeesCbl.Items)
-                {
-                    item.Selected = true;
-                    item.Attributes.Add("class", "form-control");
-                }
+
 
 
             }
@@ -124,9 +128,6 @@ namespace TargetSystem.Views
                 if (emp.Selected == true)
                 {
                     selectedEmp = (context.Users.Find(emp.Value));
-
-                    //selectedEmp.Targets.Add(currentTarget);
-                    //currentTarget.User.Add(selectedEmp);
 
                     selectedEmp.TargetApplicationUser.Add(new TargetApplicationUser()
                     {

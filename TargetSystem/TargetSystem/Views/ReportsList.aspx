@@ -12,7 +12,7 @@
         Width="1150px"
         CssClass="table table-bordered table-condensed table-hover "
         AllowPaging="true"
-        PageSize="10"
+        PageSize="8"
         AutoGenerateColumns="false">
         <Columns>
 

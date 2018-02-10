@@ -9,7 +9,7 @@
         ItemType="TargetSystem.ViewModel.TargetView"
         runat="server"
         Width="1150px"
-        CssClass="table  table-bordered table-condensed table-hover "
+        CssClass="table  table-bordered table-condensed table-hover"
         AutoGenerateColumns="false">
         <Columns>
 
