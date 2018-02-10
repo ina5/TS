@@ -8,7 +8,7 @@
             <div class="col-lg-6">
                 <asp:Label ID="PositionsL" runat="server" CssClass="col-lg-12" Text="Select Position:"></asp:Label>
                 <div class="col-lg-6">
-                    <asp:DropDownList ID="PositionDdl" AutoPostBack="true" CssClass="form-control" runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="PositionDdl" OnSelectedIndexChanged="PositionDdl_SelectedIndexChanged" AutoPostBack="true" CssClass="form-control" runat="server"></asp:DropDownList>
                 </div>
 
             </div>

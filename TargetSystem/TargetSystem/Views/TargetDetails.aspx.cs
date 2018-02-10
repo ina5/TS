@@ -8,8 +8,6 @@ using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using TargetSystem.Models;
 
-
-
 namespace TargetSystem.Views
 {
     public partial class TargetDetails : System.Web.UI.Page
@@ -39,39 +37,76 @@ namespace TargetSystem.Views
                 TStartDateL.Text = currentTarget.StartDate.ToShortDateString();
                 TEndDateL.Text = currentTarget.EndDate.ToShortDateString();
                 // Populate positions
-                var positions = context.Positions.ToList();
-                foreach (var pos in positions)
-                {
-                    PositionDdl.Items.Add(new ListItem
-                    {
-                        Text = pos.PositionName,
-                        Value = pos.PositionId.ToString()
-                    });
-                }
-                positions.Clear();
+                PositionsDropDownPopulate();
                 //PositionDdl.SelectedIndex = -1;
 
                 // Show and Check all Employees
-                foreach (ListItem item in EmployeesCbl.Items)
-                {
-                    item.Selected = true;
-                    item.Attributes.Add("class", "form-control");
-                }
-
+                //foreach (ListItem item in EmployeesCbl.Items)
+                //{
+                //    item.Selected = true;
+                //    item.Attributes.Add("class", "form-control");
+                //}
 
             }
 
+            this.ToggleAssignButton();
+
+        }
+
+        private void PositionsDropDownPopulate()
+        {
+            var positions = context.Positions.ToList();
+            foreach (var pos in positions)
+            {
+                PositionDdl.Items.Add(new ListItem
+                {
+                    Text = pos.PositionName,
+                    Value = pos.PositionId.ToString()
+                });
+            }
+            positions.Clear();
+        }
+
+        // Add Id in the connection Table between Targets and Users
+        protected void AssignB_Click(object sender, EventArgs e)
+        {
+            id = int.Parse(Request.QueryString["id"]);
+
+            currentTarget = context.Targets.Find(id);
+
+            ApplicationUser selectedEmp;
+
+            foreach (ListItem emp in EmployeesCbl.Items)
+            {
+                if (emp.Selected)
+                {
+                    selectedEmp = (context.Users.Find(emp.Value));
+
+                    selectedEmp.TargetApplicationUser.Add(new TargetApplicationUser()
+                    {
+                        TargetsId = currentTarget.TargetsId,
+                        UserId = selectedEmp.Id
+                    });
+                    context.SaveChanges();
+
+                }
+            }
+            // HERE
+            //PositionDdl.ClearSelection();
+            //PositionDdl.SelectedIndex = 0;
+            //EmployeesCbl.Items.Clear();
+            HttpContext.Current.Response.Redirect($"TargetDetails?id={id}");
+                
+            MessageBox.Show("Task has been sent !", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        protected void PositionDdl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            EmployeesCbl.Items.Clear();
 
             if (PositionDdl.SelectedIndex != -1)
             {
-                if (PositionDdl.SelectedIndex == 0)
-                {
-                    AssignB.Visible = false;
-                }
-                else
-                {
-                    AssignB.Visible = true;  
-                }
+                //ToggleAssignButton();
 
                 EmpListPanel.Visible = true;
                 var posId = int.Parse(PositionDdl.SelectedValue);
@@ -87,11 +122,6 @@ namespace TargetSystem.Views
                     .Where(y => y.PositionId == selectedPos.PositionId && !userIds.Contains(y.Id))
                     .ToList();
 
-                if (EmployeesCbl.Items.Count != 0)
-                {
-                    EmployeesCbl.Items.Clear();
-                }
-
                 foreach (var emp in employees)
                 {
                     EmployeesCbl.Items.Add(new ListItem
@@ -100,51 +130,19 @@ namespace TargetSystem.Views
                         Value = emp.Id,
                     });
                 }
-
-             ;
-
-                employees.Clear();
-
-
-
-
             }
-
-
-
         }
-        // Add Id in the connection Table between Targets and Users
-        protected void AssignB_Click(object sender, EventArgs e)
+
+        private void ToggleAssignButton()
         {
-
-            id = int.Parse(Request.QueryString["id"]);
-
-            currentTarget = context.Targets.Find(id);
-
-            ApplicationUser selectedEmp;
-
-            foreach (ListItem emp in EmployeesCbl.Items)
+            if (PositionDdl.SelectedIndex == 0)
             {
-                if (emp.Selected == true)
-                {
-                    selectedEmp = (context.Users.Find(emp.Value));
-
-                    selectedEmp.TargetApplicationUser.Add(new TargetApplicationUser()
-                    {
-                        TargetsId = currentTarget.TargetsId,
-                        UserId = selectedEmp.Id
-                    });
-                    context.SaveChanges();
-
-                }
+                AssignB.Visible = false;
             }
-            // HERE
-            PositionDdl.ClearSelection();
-
-            MessageBox.Show("Task has been sent !", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
-          
-
+            else
+            {
+                AssignB.Visible = true;
+            }
         }
-
     }
 }
